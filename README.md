@@ -1,4 +1,4 @@
-##Before you begin
+## Before you begin
 
 Ensure you have docker installed on the computer this is running on. 
 
