@@ -1,0 +1,34 @@
+version: '3'
+services:
+  springapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: springapp
+    environment:
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_URL: jdbc:postgresql://host.docker.internal:5432/example?currentSchema=example_schema&ssl=false
+      SPRING_DATASOURCE_USERNAME: appuser
+      SPRING_DATASOURCE_PASSWORD: apptest123
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    command: ["bin/wait-for-db.sh", "java", "-jar", "/SpringBootExample.jar"]
+
+  postgres:
+    container_name: postgres
+    image: postgres:12.3-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apptest123
+      POSTGRES_DB: example
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
