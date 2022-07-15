@@ -1,27 +1,49 @@
 package brunkow.james.SpringTemplate.data.model;
 import javax.persistence.*;
 @Entity
+@Table(name="projects", schema="example_schema")
+//Using methods from DTO, this class provides getters for the newly attributed java fields.
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(updatable = false, nullable = false)
-    public Long userId;
-
+    public Long instanceId;
     @Column(nullable = false)
-    public String username;
-
+    public String studentId;
     @Column(nullable = false)
-    public String userEmail;
-
+    public String studentName;
     @Column(nullable = false)
-    public String userFirstName;
-
+    public String degreeTitle;
     @Column(nullable = false)
-    public String userLastName;
+    public String projectName;
+    @Column(nullable = false)
+    public String supervisor1Name;
+    @Column(nullable = false)
+    public String supervisor1Email;
+    @Column(nullable = false)
+    public Boolean groupProject;
+    @Column(nullable = true)
+    public String supervisor2Name;
+    @Column(nullable = true)
+    public String supervisor2Email;
+    @Column(nullable = false)
+    public Boolean cybersecProject;
+    @Column(nullable = false)
+    public Boolean ethicsRequired;
 
-    public Long getUserId() { return userId; }
-    public String getUsername() { return username; }
-    public String getUserFirstName() { return userFirstName; }
-    public String getUserLastName() { return userLastName; }
-    public String getUserEmail() { return userEmail; }
+
+
+    public Long getInstanceId() {return instanceId;}
+    public String getStudentId() {return studentId;}
+    public String getStudentName() {return studentName;}
+    public String getDegreeTitle() {return degreeTitle;}
+    public String getProjectName() {return projectName;}
+    public Boolean getGroupProject() {return groupProject;}
+    public String getSupervisor1Name() {return supervisor1Name;}
+    public String getSupervisor1Email() {return supervisor1Email;}
+    public String getSupervisor2Name() {return supervisor2Name;}
+    public String getSupervisor2Email() {return supervisor2Email;}
+    public Boolean getCybersecProject() {return cybersecProject;}
+    public Boolean getEthicsRequired() {return ethicsRequired;}
 }

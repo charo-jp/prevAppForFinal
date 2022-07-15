@@ -3,14 +3,12 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
-
 group = 'brunkow.james'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
-
 repositories {
-	mavenCentral()
-}
+		mavenCentral()
+		}
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
@@ -21,9 +19,16 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core:6.5.1'
 	implementation 'org.postgresql:postgresql:42.2.14'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+bootRun {
+	environment "SPRING_DATASOURCE_DRIVER_CLASS_NAME" ,	 "org.postgresql.Driver"
+	environment	"SPRING_DATASOURCE_URL" , "jdbc:postgresql://localhost:5432/example?currentSchema=example_schema&ssl=false"
+	environment	"SPRING_DATASOURCE_USERNAME" , "appuser"
+	environment	"SPRING_DATASOURCE_PASSWORD", "apptest123"
+
+	jvmArgs = ["-Dspring.profiles.active=local", "-Djdk.tls.client.protocols=TLSv1.2"]
 }
