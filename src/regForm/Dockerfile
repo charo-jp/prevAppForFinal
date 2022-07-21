@@ -1,4 +1,4 @@
-FROM  nginx:alpine
-COPY src/html /usr/share/nginx/html
+FROM  nginx:1.10.1-alpine
+COPY src /usr/share/nginx/html
 
-EXPOSE 80/tcp
+
