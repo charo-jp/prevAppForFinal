@@ -263,7 +263,89 @@ Supervisor meeting
 * John to look at submoduling his code to the main repo, as well as how to output json in the same format as the java takes it in. 
 </td>
 </tr>
+<tr>
+<td>14/07</td>
+<td>
 
+* John working on converting data into a JSON - needs more research into php
+* Jordan working on running through Java and converting JSON into java to send to database
+</td>
+<td>
+
+* Continue working on given work
+* Question Rogerio in meeting about if we need multiple instances for clusters and how to request access to more instances on OpenStack
+</td>
+</tr>
+<tr>
+<td>15/07</td>
+<td>
+
+* Meeting with Rogerio
+* Issues with formatting of user stories
+* Documentation should be on the repository and not on the wiki
+* John struggling with converting group project members into JSON
+* (After meeting with Rogerio)
+* Jordan suggested John focus on accepting individual projects for now
+</td>
+<td>
+
+* Move documentation to repository
+* Add conversations into user stories and better testing conditions
+* John to change code to accept only individual projects for now
+* Jordan to work on a parallel Java demo that might be a better solution to current Java - Need to ask James' opinion after his break
+</td>
+</tr>
+<tr>
+<td>18/07</td>
+<td>
+
+* Helped John set up VM on OpenStack
+* John succeeded in converting data to JSON
+* John working on containerising php
+* Jordan managed to fix OpenStack console not opening for instances
+* Jordan continuing work on java
+* Showed used variables for JSON file to ensure consistency between front and back end
+</td>
+<td>
+
+* Containerise php
+* Continue working on Java
+</td>
+</tr>
+<tr>
+<td>20/07</td>
+<td>
+
+* John successfully containerised but has trouble with getting submission to work on containerised instance
+* Jordan nearly finished with Java app demo
+* Jordan struggling with setting up k8s cluster
+</td>
+<td>
+
+* Set up k8s cluster on OpenStack
+* Work on containerised php and research into ways to fix it
+* Finish off Java
+</td>
+</tr>
+<tr>
+<td>21/07</td>
+<td>
+
+* John still struggling with containerised version of php not working as intended - sent off email to Rogerio
+* Jordan got an app deployed onto OpenStack
+* Jordan helped John with setting up OpenStack to accept containers once he has figured out the problem
+* Jordan moved documentation to repository
+* Jordan fixed user stories
+</td>
+<td>
+
+* John to fully set up cluster to be ready to deploy his image
+* Show Rogerio user stories in next meeting
+* John will not be able to attend the meeting with Rogerio
+* Jordan to finished off java demo
+* John to continue working on php and having it work with the submission form
+</td>
+</tr>
 </table>
 
 </details>
