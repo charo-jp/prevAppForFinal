@@ -292,7 +292,6 @@ Supervisor meeting
 * Move documentation to repository
 * Add conversations into user stories and better testing conditions
 * John to change code to accept only individual projects for now
-* Jordan to work on a parallel Java demo that might be a better solution to current Java - Need to ask James' opinion after his break
 </td>
 </tr>
 <tr>
@@ -303,7 +302,7 @@ Supervisor meeting
 * John succeeded in converting data to JSON
 * John working on containerising php
 * Jordan managed to fix OpenStack console not opening for instances
-* Jordan continuing work on java
+* Jordan working on Java demo of potentially different approach to one from James
 * Showed used variables for JSON file to ensure consistency between front and back end
 </td>
 <td>
