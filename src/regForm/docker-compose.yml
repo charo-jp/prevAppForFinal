@@ -9,20 +9,17 @@ services:
       
     ports:
       - 5001:80
-    # links:
-    #   - php
-    # php:
-    #   image: php:7-fpm
 
   web:
     image: nginx:latest
     volumes:
       - ./src:/src
-      - ./code:/code
       - ./site.conf:/etc/nginx/conf.d/site.conf
     ports:
       - "8080:80"
-  #   links:
-  #     - php
-  #   php:
-  #     image: php:7-fpmclear
+    links:
+      - php
+  php:
+    image: php:7-fpm
+    volumes:
+      - ./src:/src
