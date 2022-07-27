@@ -23,3 +23,9 @@ services:
     image: php:7-fpm
     volumes:
       - ./src:/src
+
+
+
+    #   depends_on:
+    #   - postgres
+    # command: ["bin/wait-for-db.sh", "java", "-jar", "/SpringBootExample.jar"]
