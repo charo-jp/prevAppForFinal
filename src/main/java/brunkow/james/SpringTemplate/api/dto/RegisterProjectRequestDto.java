@@ -6,11 +6,8 @@ import javax.validation.constraints.NotNull;
 //DTO Stands for Data Transfer Object.
 //It takes a Json input and splits the input based on the data labels given
 //This applies to data from the database and from the frontend.
+// Incoming data from JSON
 public class RegisterProjectRequestDto {
-
-    @NotNull(message = "instanceID not found")
-    @JsonProperty("instance_id")
-    private Long instanceId;
 
     @NotBlank(message = "studentID not found")
     @JsonProperty("student_id")
@@ -32,35 +29,31 @@ public class RegisterProjectRequestDto {
     @JsonProperty("supervisor_1_name")
     private String supervisor1Name;
 
-    @NotBlank(message = "supervisor1email not found")
+    @NotBlank(message = "supervisor1Email not found")
     @JsonProperty("supervisor_1_email")
     private String supervisor1Email;
 
-    @NotBlank(message = "groupProject quantifier not found")
+    @NotNull(message = "groupProject quantifier not found")
     @JsonProperty("group_project")
     private Boolean groupProject;
 
-    @NotBlank(message = "supervisor2Name not found")
-    @JsonProperty("supervisor_2_name")
+    @JsonProperty("supervisor_2_Name")
     private String supervisor2Name;
 
-    @NotBlank(message = "supervisor2email not found")
     @JsonProperty("supervisor_2_email")
     private String supervisor2Email;
 
-    @NotBlank(message = "cybersecProject quantifier not found")
+    @NotNull(message = "cybersecProject quantifier not found")
     @JsonProperty("cybersec_project")
     private Boolean cybersecProject;
 
-    @NotBlank(message = "ethicsRequired quantifier not found")
+    @NotNull(message = "ethicsRequired quantifier not found")
     @JsonProperty("ethics_required")
     private Boolean ethicsRequired;
 
+
     public RegisterProjectRequestDto() {
     }
-    public Long getInstanceId() {return instanceId;}
-    public void setInstanceId(Long instanceId) {this.instanceId = instanceId;}
-
     public Boolean getCybersecProject() {return cybersecProject;}
     public void setCybersecProject(Boolean cybersecProject) {this.cybersecProject = cybersecProject;}
     public Boolean getEthicsRequired() {return ethicsRequired;}
@@ -87,7 +80,6 @@ public class RegisterProjectRequestDto {
     @Override
     public String toString() {
         return "RegisterProjectRequestDto{" +
-                "instanceId=" + instanceId +
                 ", studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", degreeTitle='" + degreeTitle + '\'' +
