@@ -1,26 +1,26 @@
 
-// if checkbox for special resources is checked then show input if not hide
-$('#specialResourcesCheck').click(function() {
-    let isChecked = $('#specialResourcesCheck').is(':checked');
-    if(isChecked) {
-        $('#specialResInput').show();
-    }else{
-        $('#specialResInput').hide();
-    }
-});
+// // if checkbox for special resources is checked then show input if not hide
+// $('#specialResourcesCheck').click(function() {
+//     let isChecked = $('#specialResourcesCheck').is(':checked');
+//     if(isChecked) {
+//         $('#specialResInput').show();
+//     }else{
+//         $('#specialResInput').hide();
+//     }
+// });
 
-// if checkbox for ethics review is checked then show input if not hide
-$('#ethicsReviewCheck').click(function() {
-    let isChecked = $('#ethicsReviewCheck').is(':checked');
-    if(isChecked) {
-        $('#ethicsReviewInput').show();
-        $('#checkList').show();
-    }else{
-        $('#ethicsReviewInput').hide();
-        $('#checkList').hide();
-    }
+// // if checkbox for ethics review is checked then show input if not hide
+// $('#ethicsReviewCheck').click(function() {
+//     let isChecked = $('#ethicsReviewCheck').is(':checked');
+//     if(isChecked) {
+//         $('#ethicsReviewInput').show();
+//         $('#checkList').show();
+//     }else{
+//         $('#ethicsReviewInput').hide();
+//         $('#checkList').hide();
+//     }
 
-});
+// });
 
 
 // ///testing
@@ -57,24 +57,60 @@ $('#ethicsReviewCheck').click(function() {
 // ///endTesting
 
 
-function sendJSON(){
-              console.log(here);
-    let rawName = $('#nameInput');
+// function sendJSON(){
+
+//     // let rawName = $('#nameInput');
     
-    // let name = document.querySelector('#name');
-    // let email = document.querySelector('#email');
+//     // // let name = document.querySelector('#name');
+//     // // let email = document.querySelector('#email');
 
-    let name = rawName.val();
+//     // let name = rawName.val();
 
+//     const toSend = {
+//         name:$('nameInput'),
+//         login:$('loginInput')
+//     }
 
+//     // Converting JSON data to string
+//     const data = JSON.stringify(toSend);
+
+//     // Creating a XHR object
+//     const xhr = new XMLHttpRequest();
+//     // let url = "submit.php";
+
+//     // Create a state change callback
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+
+//             // Print received data from server
+//             result.innerHTML = this.responseText;
+
+//         }
+//     };
+
+//     // open a connection
+//     xhr.open("POST", "submit.php");
+
+//     // Set the request header of type json
+//     xhr.setRequestHeader("Content-Type", "application/json");
+//     // Sending data with the request
+//     xhr.send(data);
+// }
+
+//https://www.geeksforgeeks.org/how-to-send-a-json-object-to-a-server-using-javascript/
+function sendJSON(){
+    let result = document.querySelector('.result');
+    let name = document.querySelector('#name');
+    let login = document.querySelector('#login');
+      
     // Creating a XHR object
     let xhr = new XMLHttpRequest();
-    let url = "form.php";
+    let url = 'submit.php'; //Possibly need to change this to localhost location?
 
     // open a connection
     xhr.open("POST", url, true);
 
-    // Set the request header of type json
+    // Set the request header i.e. which type of content you are sending
     xhr.setRequestHeader("Content-Type", "application/json");
 
     // Create a state change callback
@@ -88,12 +124,9 @@ function sendJSON(){
     };
 
     // Converting JSON data to string
-    var data = JSON.stringify({ "name": name.val() });
-    console.log(data);
+    var data = JSON.stringify({ "name": name.value, "login": login.value });
 
     // Sending data with the request
     xhr.send(data);
 }
-
-
 

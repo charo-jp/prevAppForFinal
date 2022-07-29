@@ -19,7 +19,9 @@
     <div class="container">
       <h1>COMP8800 Project Registration</h1>
       <section>
-        <form id="regForm">
+        <input type="text" id="name" placeholder="Enter your full name">
+        <input type="email" id="login" placeholder="Enter your login">
+        <!-- <form id="regForm">
           <div class="form-group">
             <label for="nameInput">Name</label>
             <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" placeholder="Enter your full name">
@@ -27,8 +29,8 @@
           <div class="form-group">
             <label for="loginInput">Login</label>
             <input type="text" class="form-control" id="loginInput"  placeholder="Enter your login">
-          </div>
-          <div class="form-group">
+          </div> -->
+          <!-- <div class="form-group">
             <label for="courseTitle">Degree Programme</label>
             <input type="text" class="form-control" id="courseTitle" placeholder="Enter your course title">
           </div>
@@ -39,9 +41,9 @@
           <div class="form-group">
             <label for="projectName">Project Supervisor Name</label>
             <input type="text" class="form-control" id="supervisorName" placeholder="Project supervisor name">
-          </div>
+          </div> -->
 
-          <p></p>
+          <!-- <p></p>
           <p>Please tick if applies</p>
           <div class="form-group form-check form-switch">
             <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="cybersecProject">
@@ -63,10 +65,13 @@
           <div class="form-group mb-3">
             <button type="button" class="btn btn-outline-primary btn-sm" style="display: none" id="checkList">Ethics Checklist</button>
             <textarea class="form-control text-input" id="ethicsReviewInput" rows="6" placeholder="should fill out this box with a brief description of the project and how human participants are involved" style="display: none"></textarea>
-          </div>
+          </div> -->
           
           <button onclick="sendJSON()" class="btn btn-primary" id="submitForm">Submit</button>
-        </form>
+
+          <!-- Prints results from server -->
+          <p class="result" style="color:green"></p>
+        <!-- </form> -->
       </section>
     </div>
 
