@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 ## Prerequisites
 
 The following are required for this application to run locally:
