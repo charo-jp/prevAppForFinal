@@ -9,7 +9,6 @@ public class Mapper {
 // Uses getters for an object 'user' to set the values presented to the DTO
     public RegisterProjectRequestDto mapToDto(User user) {
         RegisterProjectRequestDto userDto = new RegisterProjectRequestDto();
-        userDto.setInstanceId(user.getInstanceId());
         userDto.setStudentId(user.getStudentId());
         userDto.setStudentName(user.getStudentName());
         userDto.setDegreeTitle(user.getDegreeTitle());
@@ -22,5 +21,20 @@ public class Mapper {
         userDto.setCybersecProject(user.getCybersecProject());
         userDto.setEthicsRequired(user.getEthicsRequired());
         return userDto;
+    }
+    public User mapCreateUserRequestToUser(RegisterProjectRequestDto requestDto) {
+        User user = new User();
+        user.setStudentId(requestDto.getStudentId());
+        user.setStudentName(requestDto.getStudentName());
+        user.setDegreeTitle(requestDto.getDegreeTitle());
+        user.setProjectName(requestDto.getProjectName());
+        user.setSupervisor1Name(requestDto.getSupervisor1Name());
+        user.setSupervisor1Email(requestDto.getSupervisor1Email());
+        user.setGroupProject(requestDto.getGroupProject());
+        user.setSupervisor2Name(requestDto.getSupervisor2Name());
+        user.setSupervisor2Email(requestDto.getSupervisor2Email());
+        user.setCybersecProject(requestDto.getCybersecProject());
+        user.setEthicsRequired(requestDto.getEthicsRequired());
+        return user;
     }
 }
