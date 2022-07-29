@@ -19,32 +19,32 @@
     <div class="container">
       <h1>COMP8800 Project Registration</h1>
       <section>
-        <form id="regForm" action="form.php" method="post">
+        <form id="regForm">
           <div class="form-group">
             <label for="nameInput">Name</label>
-            <input type="text" class="form-control" id="nameInput" name="studentName" aria-describedby="emailHelp" placeholder="Enter your full name">
+            <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" placeholder="Enter your full name">
           </div>
           <div class="form-group">
             <label for="loginInput">Login</label>
-            <input type="text" class="form-control" id="loginInput" name="studentId"  placeholder="Enter your login">
+            <input type="text" class="form-control" id="loginInput"  placeholder="Enter your login">
           </div>
           <div class="form-group">
             <label for="courseTitle">Degree Programme</label>
-            <input type="text" class="form-control" id="courseTitle" name="degreeTitle" placeholder="Enter your course title">
+            <input type="text" class="form-control" id="courseTitle" placeholder="Enter your course title">
           </div>
           <div class="form-group">
             <label for="projectName">Project Name</label>
-            <input type="text" class="form-control" id="projectName" name="pojectName" placeholder="Enter the name of the project you are registering for">
+            <input type="text" class="form-control" id="projectName" placeholder="Enter the name of the project you are registering for">
           </div>
           <div class="form-group">
             <label for="projectName">Project Supervisor Name</label>
-            <input type="text" class="form-control" id="supervisorName" name="supervisorName" placeholder="Project supervisor name">
+            <input type="text" class="form-control" id="supervisorName" placeholder="Project supervisor name">
           </div>
 
           <p></p>
           <p>Please tick if applies</p>
           <div class="form-group form-check form-switch">
-            <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="cybersecProject" name="cybersecProject">
+            <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="cybersecProject">
             <label class="form-check-label ethicsReview" for="cybersecProject">Is the project a cyber security project</label>
           </div>
           <div class="form-group form-check form-switch">
@@ -52,20 +52,20 @@
             <label class="form-check-label specialResources" for="specialResourcesCheck">Special resourses will be needed</label>
           </div>
           <div class="form-group mb-3">
-            <textarea class="form-control text-input" id="specialResInput" name="specialResourcesText" rows="4" placeholder="Enter special resources needed for this project" style="display: none"></textarea>
+            <textarea class="form-control text-input" id="specialResInput" rows="4" placeholder="Enter special resources needed for this project" style="display: none"></textarea>
           </div>
 
           <div class="form-group form-check form-switch">
-            <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="ethicsReviewCheck" name="ethicsReviewCheck">
+            <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="ethicsReviewCheck">
             <label class="form-check-label ethicsReview" for="ethicsReviewCheck">Requires Ethics Approval</label>
           </div>
           
           <div class="form-group mb-3">
-            <button type="button" onclick="location.href='form.html'" class="btn btn-outline-primary btn-sm" style="display: none" id="checkList">Ethics Checklist</button>
-            <textarea class="form-control text-input" id="ethicsReviewInput" name="ethicsReviewInput" rows="6" placeholder="should fill out this box with a brief description of the project and how human participants are involved" style="display: none"></textarea>
+            <button type="button" class="btn btn-outline-primary btn-sm" style="display: none" id="checkList">Ethics Checklist</button>
+            <textarea class="form-control text-input" id="ethicsReviewInput" rows="6" placeholder="should fill out this box with a brief description of the project and how human participants are involved" style="display: none"></textarea>
           </div>
           
-          <button type="submit" name="submit" value="submit" class="btn btn-primary" id="submitForm">Submit</button>
+          <button onclick="sendJSON()" class="btn btn-primary" id="submitForm">Submit</button>
         </form>
       </section>
     </div>
