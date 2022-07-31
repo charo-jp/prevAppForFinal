@@ -7,7 +7,7 @@ services:
       - ./src:/src
       - ./site.conf:/etc/nginx/conf.d/site.conf
     ports:
-      - "8080:80"
+      - "8081:80"
     links:
       - php
   php:

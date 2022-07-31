@@ -46,19 +46,23 @@ function sendJSON(){
     // Creating a XHR object
     let xhr = new XMLHttpRequest();
     let url = 'submit.php'; //Possibly need to change this to localhost location?
-
+    let localhost8080 = 'localhost:8080/registerUser';
     // open a connection
-    xhr.open("POST", url, true);
+    // xhr.open("POST", url, true);
+    xhr.open("POST", localhost8080, true);
 
     // Set the request header i.e. which type of content you are sending
+    xhr.setRequestHeader("Accept", "application/json"); // telling the server we are expecting a json obj
     xhr.setRequestHeader("Content-Type", "application/json");
 
     // Create a state change callback
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
 
-            // Print received data from server
-            result.innerHTML = this.responseText;
+            // // Print received data from server
+            // result.innerHTML = this.responseText;
+            
+            console.log('Data sent');
 
         }
     };
