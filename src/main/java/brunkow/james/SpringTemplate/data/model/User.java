@@ -1,5 +1,9 @@
 package brunkow.james.SpringTemplate.data.model;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 @Entity
 @Table(name="projects", schema="example_schema")
 //Maps data from java to table in database, currently example_schema table projects.
@@ -16,11 +20,12 @@ public class User {
     @Column(nullable = false)
     public String degreeTitle;
     @Column(nullable = false)
-
     public String projectName;
     @Column(nullable = false, name = "supervisor_1_name")
     public String supervisor1Name;
     @Column(nullable = false, name = "supervisor_1_email")
+    @NotBlank
+    @Email(message = "valid e-mail address required")
     public String supervisor1Email;
     @Column(nullable = false)
     public Boolean groupProject;
