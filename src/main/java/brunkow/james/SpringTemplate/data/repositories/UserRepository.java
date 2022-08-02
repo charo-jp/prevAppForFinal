@@ -18,7 +18,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     public List<User>findBySupervisor1EmailIgnoreCase(String supervisor1Email);
     public List<User>findByGroupProjectEquals(Boolean groupProject);
     public List<User>findByCybersecProjectEquals(Boolean cybersecProject);
-    public List<User>findByEthicsRequiredEquals(Boolean ethicsRequired);
+    public List<User>findByethicsReviewCheckEquals(Boolean ethicsReviewCheck);
 
 
     }

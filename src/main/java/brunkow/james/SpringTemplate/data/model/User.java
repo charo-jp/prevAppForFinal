@@ -11,15 +11,15 @@ import javax.validation.constraints.NotBlank;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false, name = "instance_id")
     public Long instanceId;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "student_id")
     public String studentId;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "student_name")
     public String studentName;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "degree_title")
     public String degreeTitle;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "project_name")
     public String projectName;
     @Column(nullable = false, name = "supervisor_1_name")
     public String supervisor1Name;
@@ -27,17 +27,22 @@ public class User {
     @NotBlank
     @Email(message = "valid e-mail address required")
     public String supervisor1Email;
-    @Column(nullable = false)
-    public Boolean groupProject;
     @Column(name = "supervisor_2_name")
     public String supervisor2Name;
     @Column(name = "supervisor_2_email")
     public String supervisor2Email;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "special_resources_check")
+    public Boolean specialResourcesCheck;
+    @Column(name = "special_resources_text")
+    public String specialResourcesText;
+    @Column(nullable = false, name = "group_project")
+    public Boolean groupProject;
+    @Column(nullable = false, name = "ethics_review_check")
+    public Boolean ethicsReviewCheck;
+    @Column(name = "ethics_review_text")
+    public String ethicsReviewText;
+    @Column(nullable = false, name = "cybersec_project")
     public Boolean cybersecProject;
-    @Column(nullable = false)
-    public Boolean ethicsRequired;
-
 
 
     public Long getInstanceId() {return instanceId;}
@@ -51,8 +56,10 @@ public class User {
     public String getSupervisor2Name() {return supervisor2Name;}
     public String getSupervisor2Email() {return supervisor2Email;}
     public Boolean getCybersecProject() {return cybersecProject;}
-    public Boolean getEthicsRequired() {return ethicsRequired;}
-
+    public Boolean getEthicsReviewCheck() {return ethicsReviewCheck;}
+    public Boolean getSpecialResourcesCheck() {return specialResourcesCheck;}
+    public String getEthicsReviewText() {return ethicsReviewText;}
+    public String getSpecialResourcesText() {return specialResourcesText;}
 
     public void setInstanceId(Long instanceId) {this.instanceId = instanceId;}
     public void setStudentId(String studentId) {this.studentId = studentId;}
@@ -65,6 +72,9 @@ public class User {
     public void setSupervisor2Name(String supervisor2Name) {this.supervisor2Name = supervisor2Name;}
     public void setSupervisor2Email(String supervisor2Email) {this.supervisor2Email = supervisor2Email;}
     public void setCybersecProject(Boolean cybersecProject) {this.cybersecProject = cybersecProject;}
-    public void setEthicsRequired(Boolean ethicsRequired) {this.ethicsRequired = ethicsRequired;}
+    public void setEthicsReviewCheck(Boolean ethicsReviewCheck) {this.ethicsReviewCheck = ethicsReviewCheck;}
+    public void setEthicsReviewText(String ethicsReviewText) {this.ethicsReviewText = ethicsReviewText;}
+    public void setSpecialResourcesCheck(Boolean specialResourcesCheck) {this.specialResourcesCheck = specialResourcesCheck;}
+    public void setSpecialResourcesText(String specialResourcesText) {this.specialResourcesText = specialResourcesText;}
 }
 
