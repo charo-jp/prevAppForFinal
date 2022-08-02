@@ -4,13 +4,12 @@ services:
   Project_registration:
     image: nginx:latest
     volumes:
-      - ./src:/src
-      - ./site.conf:/etc/nginx/conf.d/site.conf
+      - ./src:/usr/share/nginx/html
+      # - ./site.conf:/etc/nginx/conf.d/site.conf
     ports:
       - "8081:80"
-    links:
-      - php
-  php:
-    image: php:7-fpm
-    volumes:
-      - ./src:/src
+
+  # php:
+  #   image: php:7-fpm
+  #   volumes:
+  #     - ./src:/src
