@@ -33,31 +33,37 @@ public class RegisterProjectRequestDto {
     @JsonProperty("supervisor_1_email")
     private String supervisor1Email;
 
+    @JsonProperty("supervisor_2_name")
+    private String supervisor2Name;
+    @JsonProperty("supervisor_2_email")
+    private String supervisor2Email;
+    
+    @NotNull(message = "specialResourcesCheck quantifier not found")
+    @JsonProperty("special_resources_check")
+    private Boolean specialResourcesCheck;
+    
+    @JsonProperty("special_resources_text")
+    private String specialResourcesText;
     @NotNull(message = "groupProject quantifier not found")
     @JsonProperty("group_project")
     private Boolean groupProject;
-
-    @JsonProperty("supervisor_2_Name")
-    private String supervisor2Name;
-
-    @JsonProperty("supervisor_2_email")
-    private String supervisor2Email;
-
+    @NotNull(message = "ethicsReviewCheck quantifier not found")
+    @JsonProperty("ethics_review_check")
+    private Boolean ethicsReviewCheck;
+    @JsonProperty("ethics_review_text")
+    private String ethicsReviewText;
     @NotNull(message = "cybersecProject quantifier not found")
     @JsonProperty("cybersec_project")
     private Boolean cybersecProject;
 
-    @NotNull(message = "ethicsRequired quantifier not found")
-    @JsonProperty("ethics_required")
-    private Boolean ethicsRequired;
+
 
 
     public RegisterProjectRequestDto() {
     }
     public Boolean getCybersecProject() {return cybersecProject;}
     public void setCybersecProject(Boolean cybersecProject) {this.cybersecProject = cybersecProject;}
-    public Boolean getEthicsRequired() {return ethicsRequired;}
-    public void setEthicsRequired(Boolean ethicsRequired) {this.ethicsRequired = ethicsRequired;}
+    public void setethicsReviewCheck(Boolean ethicsReviewCheck) {this.ethicsReviewCheck = ethicsReviewCheck;}
     public Boolean getGroupProject() {return groupProject;}
     public void setGroupProject(Boolean groupProject) {this.groupProject = groupProject;}
     public String getDegreeTitle() {return degreeTitle;}
@@ -76,21 +82,32 @@ public class RegisterProjectRequestDto {
     public void setSupervisor2Email(String supervisor2Email) {this.supervisor2Email = supervisor2Email;}
     public String getSupervisor2Name() {return supervisor2Name;}
     public void setSupervisor2Name(String supervisor2Name) {this.supervisor2Name = supervisor2Name;}
+    public String getSpecialResourcesText() {return specialResourcesText;}
+    public void setSpecialResourcesText(String specialResourcesText) {this.specialResourcesText = specialResourcesText;}
+    public String getEthicsReviewText() {return ethicsReviewText;}
+    public void setEthicsReviewText(String ethicsReviewText) {this.ethicsReviewText = ethicsReviewText;}
+    public Boolean getSpecialResourcesCheck() {return specialResourcesCheck;}
+    public void setSpecialResourcesCheck(Boolean specialResourcesCheck) {this.specialResourcesCheck = specialResourcesCheck;}
+    public Boolean getEthicsReviewCheck() {return ethicsReviewCheck;}
+    public void setEthicsReviewCheck(Boolean ethicsReviewCheck) {this.ethicsReviewCheck = ethicsReviewCheck;}
 
     @Override
     public String toString() {
         return "RegisterProjectRequestDto{" +
-                ", studentId='" + studentId + '\'' +
+                "studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +
                 ", degreeTitle='" + degreeTitle + '\'' +
                 ", projectName='" + projectName + '\'' +
                 ", supervisor1Name='" + supervisor1Name + '\'' +
                 ", supervisor1Email='" + supervisor1Email + '\'' +
-                ", groupProject=" + groupProject +
                 ", supervisor2Name='" + supervisor2Name + '\'' +
                 ", supervisor2Email='" + supervisor2Email + '\'' +
+                ", specialResourcesCheck=" + specialResourcesCheck +
+                ", specialResourcesText='" + specialResourcesText + '\'' +
+                ", groupProject=" + groupProject +
+                ", ethicsReviewCheck=" + ethicsReviewCheck +
+                ", ethicsReviewText='" + ethicsReviewText + '\'' +
                 ", cybersecProject=" + cybersecProject +
-                ", ethicsRequired=" + ethicsRequired +
                 '}';
     }
 }

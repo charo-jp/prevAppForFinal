@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
+@CrossOrigin
 public class Controller {
     private final UserRepository userRepository;
     private final Mapper mapper;

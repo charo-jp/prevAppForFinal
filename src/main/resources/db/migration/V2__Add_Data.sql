@@ -1,15 +1,20 @@
 INSERT INTO projects
-    (student_id,
-    student_name,
-    degree_title,
-    project_name,
-    supervisor_1_name,
-    supervisor_1_email,
-    group_project,
-    supervisor_2_name,
-    supervisor_2_email,
-    cybersec_project,
-    ethics_required)
+    (
+     student_id ,
+     student_name ,
+     degree_title ,
+     project_name ,
+     supervisor_1_name ,
+     supervisor_1_email ,
+     supervisor_2_name ,
+     supervisor_2_email ,
+     special_resources_check ,
+     special_resources_text ,
+     group_project ,
+     ethics_review_check ,
+     ethics_review_text ,
+     cybersec_project
+     )
 VALUES      (
              'abc123',
              'John Doe',
@@ -17,25 +22,33 @@ VALUES      (
              'Super Duper Conversion Project',
              'Bob de Builder',
              'bdb1@emayul.org.uk',
-             '0',
              '',
              '',
              '0',
-             '1'
+             '',
+             '0',
+             '0',
+             '',
+             '0'
             );
 
 INSERT INTO projects
-                (student_id,
-                 student_name,
-                 degree_title,
-                 project_name,
-                 supervisor_1_name,
-                 supervisor_1_email,
-                 group_project,
-                 supervisor_2_name,
-                 supervisor_2_email,
-                 cybersec_project,
-                 ethics_required)
+                (
+                 student_id ,
+                 student_name ,
+                 degree_title ,
+                 project_name ,
+                 supervisor_1_name ,
+                 supervisor_1_email ,
+                 supervisor_2_name ,
+                 supervisor_2_email ,
+                 special_resources_check ,
+                 special_resources_text ,
+                 group_project ,
+                 ethics_review_check ,
+                 ethics_review_text ,
+                 cybersec_project
+                 )
 VALUES      (
              'tt420',
              'Tina Turner',
@@ -43,9 +56,12 @@ VALUES      (
              'Hacking the Thunderdome',
              'Bob Ross',
              'BR800@eeemayol.ac.uk',
-             '1',
-             'Professor Barry Chuckle',
-             'bc342@eeemayol.co.uk',
-             '1',
-             '0'
+             '',
+             '',
+             '0',
+             '',
+             '0',
+             '0',
+             '',
+             '1'
             );

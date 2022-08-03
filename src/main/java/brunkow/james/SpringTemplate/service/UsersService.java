@@ -4,6 +4,7 @@ import brunkow.james.SpringTemplate.api.dto.RegisterProjectRequestDto;
 import brunkow.james.SpringTemplate.api.dto.RegisterProjectResponseDto;
 import brunkow.james.SpringTemplate.data.model.User;
 import brunkow.james.SpringTemplate.data.repositories.UserRepository;
+import brunkow.james.SpringTemplate.enums.CreateProjectRequestResponseEnum;
 import brunkow.james.SpringTemplate.mapper.Mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,14 +28,24 @@ public class UsersService {
     }
     public RegisterProjectResponseDto registerProject(final RegisterProjectRequestDto requestDto) {
         User user = mapper.mapCreateUserRequestToUser(requestDto);
-        // TODO - Validate that username, email, and names are valid before writing to DB
+
+// Check to see if Student name and ID already exist in database. If so, return warning string
+        if (!userRepository.findByStudentNameIgnoreCase(requestDto.getStudentName()).isEmpty()) {
+            LOGGER.warn("Tried to register user with Student Name " + requestDto.getStudentName() + " however Student already exists");
+            return new RegisterProjectResponseDto(CreateProjectRequestResponseEnum.STUDENTNAME_ALREADY_EXISTS.getResponse());
+        }
+        if (!userRepository.findByStudentIdIgnoreCase(requestDto.getStudentId()).isEmpty()) {
+            LOGGER.warn("Tried to register user with Student ID " + requestDto.getStudentId() + " however this Student ID already exists");
+            return new RegisterProjectResponseDto(CreateProjectRequestResponseEnum.STUDENTID_ALREADY_EXISTS.getResponse());
+        }
+// Save new entry to DB
         try {
             userRepository.save(user);
-            return new RegisterProjectResponseDto("success");
+            return new RegisterProjectResponseDto(CreateProjectRequestResponseEnum.SUCCESS.getResponse());
         }
         catch (Exception e) {
             LOGGER.warn("Failed to save user " + user + " to the DB with exception" + e);
-            return new RegisterProjectResponseDto("failure");
+            return new RegisterProjectResponseDto(CreateProjectRequestResponseEnum.FAILURE.getResponse());
         }
     }
 }
