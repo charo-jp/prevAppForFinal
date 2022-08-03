@@ -42,8 +42,20 @@
             <input type="text" class="form-control" id="projectName" placeholder="Enter the name of the project you are registering for">
           </div>
           <div class="form-group">
-            <label for="projectName">Project Supervisor Name</label>
-            <input type="text" class="form-control" id="supervisorName" placeholder="Project supervisor name">
+            <label for="supervisor1Name">Project Supervisor Name</label>
+            <input type="text" class="form-control" id="supervisor1Name" placeholder="Project supervisor name">
+          </div>
+          <div class="form-group">
+            <label for="supervisor1Email">Project Supervisor Email</label>
+            <input type="text" class="form-control" id="supervisor1Email" placeholder="Project supervisor email">
+          </div>
+          <div class="form-group">
+            <label for="supervisor2Name">2nd Project Supervisor Name (optional)</label>
+            <input type="text" class="form-control" id="supervisor2Name" placeholder="Project supervisor name">
+          </div>
+          <div class="form-group">
+            <label for="supervisor2Email">2nd Project Supervisor Email (optional)</label>
+            <input type="text" class="form-control" id="supervisor2Email" placeholder="Project supervisor email">
           </div>
 
           <p></p>
@@ -77,12 +89,12 @@
 
           <!-- Excel file upload -->
           <input type="file" id="fileUpload" accept=".xls,.xlsx" />
-          <button type="button" id="uploadExcel">Convert</button>
+          <button class="btn btn-primary" id="excelButton">Convert</button>
 
 
-          <!-- Prints results from server -->
+          <!-- Prints results from server
           <p class="result" style="color:green"></p>
-        
+         -->
       </section>
     </div>
 

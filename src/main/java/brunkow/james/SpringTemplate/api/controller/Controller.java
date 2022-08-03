@@ -14,9 +14,10 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+@CrossOrigin
 @RestController
 public class Controller {
+    
     private final UserRepository userRepository;
     private final Mapper mapper;
     private final UsersService usersService;
@@ -34,6 +35,7 @@ public class Controller {
     // The below are REST mapping methods, which maps specific http endpoints (listed in the brackets next to the @Mapping annotation) to the methods below
     // Uses UserRepository and Mapper objects
 
+    @CrossOrigin
     @GetMapping(value = "/getusers", produces = "application/json")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
@@ -43,7 +45,7 @@ public class Controller {
     public List<RegisterProjectRequestDto> getUsers() {
         return userRepository.findAll().stream().map(user -> mapper.mapToDto(user)).collect(Collectors.toList());
     }
-
+    @CrossOrigin
     @PostMapping(value = "/registerUser", produces = "application/json", consumes = "application/json")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
