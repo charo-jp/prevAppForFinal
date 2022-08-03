@@ -63,7 +63,6 @@ public class RegisterProjectRequestDto {
     }
     public Boolean getCybersecProject() {return cybersecProject;}
     public void setCybersecProject(Boolean cybersecProject) {this.cybersecProject = cybersecProject;}
-    public void setethicsReviewCheck(Boolean ethicsReviewCheck) {this.ethicsReviewCheck = ethicsReviewCheck;}
     public Boolean getGroupProject() {return groupProject;}
     public void setGroupProject(Boolean groupProject) {this.groupProject = groupProject;}
     public String getDegreeTitle() {return degreeTitle;}

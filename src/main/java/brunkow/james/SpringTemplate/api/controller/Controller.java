@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8081")
 public class Controller {
     private final UserRepository userRepository;
     private final Mapper mapper;
