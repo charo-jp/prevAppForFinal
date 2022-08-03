@@ -52,11 +52,12 @@ function sendJSON(){
     let localhost8081 = 'localhost:8081/registerUser';
     // open a connection
     // xhr.open("POST", url, true);
-    xhr.open("POST", "http://localhost:8080/getUser");
+    xhr.open("POST", "http://localhost:8080/registerUser");
 
     // Set the request header i.e. which type of content you are sending
     xhr.setRequestHeader("Accept", "application/json"); // telling the server we are expecting a json obj
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 
     // Create a state change callback
     xhr.onreadystatechange = function () {
@@ -89,6 +90,21 @@ function sendJSON(){
         }
     );
 
+    // var data = `{
+    //     "student_name": name.value,
+    //          "degree_title": courseTitle.value,
+    //          "project_name": projectName.value,
+    //          "supervisor_1_name": supervisor1Name.value,
+    //          "supervisor_1_email":supervisor1Email.value,
+    //          "supervisor_2_name": supervisor2Name.value,
+    //          "supervisor_2_email":supervisor2Email.value,
+    //          "special_resources_check":specialResourcesCheck,
+    //          "special_resources_text":specialResInput.value,
+    //          "group_project": 0,
+    //          "ethics_review_check": ethicsReviewCheck,
+    //          "ehtics_review_text": ethicsReviewInput.value,
+    //          "cybersec_project": cybersecProject
+    //     }`;
     // Sending data with the request
     xhr.send(data);
 }
