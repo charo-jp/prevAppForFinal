@@ -2,7 +2,6 @@ package brunkow.james.SpringTemplate.data.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="projects", schema="example_schema")
@@ -11,37 +10,37 @@ import javax.validation.constraints.NotBlank;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false, name = "instance_id")
+    @Column(updatable = false, nullable = false)
     public Long instanceId;
-    @Column(nullable = false, name = "student_id")
+    @Column(nullable = false)
     public String studentId;
-    @Column(nullable = false, name = "student_name")
+    @Column(nullable = false)
     public String studentName;
-    @Column(nullable = false, name = "degree_title")
+    @Column(nullable = false)
     public String degreeTitle;
-    @Column(nullable = false, name = "project_name")
+    @Column(nullable = false)
     public String projectName;
     @Column(nullable = false, name = "supervisor_1_name")
     public String supervisor1Name;
     @Column(nullable = false, name = "supervisor_1_email")
-    @NotBlank
-    @Email(message = "valid e-mail address required")
+    @Email
     public String supervisor1Email;
     @Column(name = "supervisor_2_name")
     public String supervisor2Name;
     @Column(name = "supervisor_2_email")
+    @Email
     public String supervisor2Email;
-    @Column(nullable = false, name = "special_resources_check")
+    @Column(nullable = false)
     public Boolean specialResourcesCheck;
-    @Column(name = "special_resources_text")
+    @Column
     public String specialResourcesText;
-    @Column(nullable = false, name = "group_project")
+    @Column(nullable = false)
     public Boolean groupProject;
-    @Column(nullable = false, name = "ethics_review_check")
+    @Column(nullable = false)
     public Boolean ethicsReviewCheck;
-    @Column(name = "ethics_review_text")
+    @Column
     public String ethicsReviewText;
-    @Column(nullable = false, name = "cybersec_project")
+    @Column(nullable = false)
     public Boolean cybersecProject;
 
 

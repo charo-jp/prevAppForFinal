@@ -25,54 +25,54 @@ $('#ethicsReviewCheck').click(function() {
 
 async function sendJSON(){
     //storing input variables
-    var student_id = document.getElementById("loginInput").value;
-    var student_name = document.getElementById("nameInput").value;
-    var degree_title = document.getElementById("courseTitle").value;
-    var project_name = document.getElementById("projectName").value;
-    var supervisor_1_name = document.getElementById("supervisor1Name").value;
-    var supervisor_1_email = document.getElementById("supervisor1Email").value;
-    var supervisor_2_name = document.getElementById("supervisor2Name").value;
-    var supervisor_2_email = document.getElementById("supervisor2Email").value;
+    var studentId = document.getElementById("loginInput").value;
+    var studentName = document.getElementById("nameInput").value;
+    var degreeTitle = document.getElementById("courseTitle").value;
+    var projectName = document.getElementById("projectName").value;
+    var supervisor1Name = document.getElementById("supervisor1Name").value;
+    var supervisor1Email = document.getElementById("supervisor1Email").value;
+    var supervisor2Name = document.getElementById("supervisor2Name").value;
+    var supervisor2Email = document.getElementById("supervisor2Email").value;
     var specialResourcesCheckPreNull = document.getElementById("specialResourcesCheck").value;
-    var special_resources_text = document.getElementById("specialResInput").value;
+    var specialResourcesText = document.getElementById("specialResInput").value;
     var ethicsReviewCheckPreNull = document.getElementById("ethicsReviewCheck").value;
-    var ethics_review_text = document.getElementById("ethicsReviewInput").value;
+    var ethicsReviewText = document.getElementById("ethicsReviewInput").value;
     var cybersecProjectPreNull = document.getElementById("cybersecProject").value;
-    var group_project = 0;  
+    var groupProject = 0;
 
     if (ethicsReviewCheckPreNull = 'on'){
-       var ethics_review_check = false 
+       var ethicsReviewCheck = false
     } else {
-        var ethics_review_check = true
+        var ethicsReviewCheck = true
     }
 
     if (specialResourcesCheckPreNull = 'on'){
-        var special_resources_check = false 
+        var specialResourcesCheck = false
      } else {
-        var special_resources_check = true
+        var specialResourcesCheck = true
      }
 
      if (cybersecProjectPreNull = 'on'){
-        var cybersec_project = false 
+        var cybersecProject = false
      } else {
-        var cybersec_project = true
+        var cybersecProject = true
      }
 
     const data = { 
-        student_id, 
-        student_name, 
-        degree_title,
-        project_name,
-        supervisor_1_name,
-        supervisor_1_email,
-        supervisor_2_name,
-        supervisor_2_email, 
-        special_resources_check,
-        special_resources_text, 
-        ethics_review_text,
-        ethics_review_check,        
-        cybersec_project, 
-        group_project
+        "student_id":studentId,
+        "student_name":studentName,
+        "degree_title":degreeTitle,
+        "project_name":projectName,
+        "supervisor_1_name":supervisor1Name,
+        "supervisor_1_email":supervisor1Email,
+        "supervisor_2_name":supervisor2Name,
+        "supervisor_2_email":supervisor2Email,
+        "special_resources_check":specialResourcesCheck,
+        "special_resources_text":specialResourcesText,
+        "ethics_review_text":ethicsReviewText,
+        "ethics_review_check":ethicsReviewCheck,
+        "cybersec_project":cybersecProject,
+        "group_project":groupProject
     };
     
     fetch('http://localhost:8080/registerUser', {
@@ -89,6 +89,7 @@ async function sendJSON(){
     .catch((error) => {
       console.error('Error:', error);
     });
+    console.log(data);
 }
 
 
