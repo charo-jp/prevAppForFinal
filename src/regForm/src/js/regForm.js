@@ -1,4 +1,3 @@
-
 // if checkbox for special resources is checked then show input if not hide
 $('#specialResourcesCheck').click(function() {
     let isChecked = $('#specialResourcesCheck').is(':checked');
@@ -100,40 +99,40 @@ async function sendJSON(){
 
 
 
-// Excel parsing WIP
-// let selectedFile;
-// console.log(window.XLSX);
-// document.getElementById('fileUpload').addEventListener("change", (event) => {
-//     selectedFile = event.target.files[0];
-// })
+//Excel parsing WIP
+let selectedFile;
+console.log(window.XLSX);
+document.getElementById('fileUpload').addEventListener("change", (event) => {
+    selectedFile = event.target.files[0];
+})
 
-// let excelData=[{
-//     "name":"jayanth",
-//     "data":"scd",
-//     "abc":"sdef"
-// }]
+let excelData=[{
+    "name":"jayanth",
+    "data":"scd",
+    "abc":"sdef"
+}]
 
 
-// document.getElementById('excelButton').addEventListener("click", () => {
-//     XLSX.utils.json_to_sheet(excelData, 'out.xlsx');
-//     if(selectedFile){
-//         let fileReader = new FileReader();
-//         fileReader.readAsBinaryString(selectedFile);
-//         fileReader.onload = (event)=>{
-//          let excelData = event.target.result;
-//          let workbook = XLSX.read(excelData,{type:"binary"});
-//          console.log(workbook);
-//          workbook.SheetNames.forEach(sheet => {
-//               let rowObject = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet]);
-//               console.log(rowObject);
-//               document.getElementById("jsondata").innerHTML = JSON.stringify(rowObject,undefined,4)
-//          });
-//         }
-//     }
-// });
+document.getElementById('excelButton').addEventListener("click", () => {
+    XLSX.utils.json_to_sheet(excelData, 'out.xlsx');
+    if(selectedFile){
+        let fileReader = new FileReader();
+        fileReader.readAsBinaryString(selectedFile);
+        fileReader.onload = (event)=>{
+         let excelData = event.target.result;
+         let workbook = XLSX.read(excelData,{type:"binary"});
+         console.log(workbook);
+         workbook.SheetNames.forEach(sheet => {
+              let rowObject = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet]);
+              console.log(rowObject);
+              document.getElementById("jsondata").innerHTML = JSON.stringify(rowObject,undefined,4)
+         });
+        }
+    }
+});
 
-// function myFunction(){
-//     if (!document.getElementById("nameInput").value || !document.getElementById("loginInput").value || !document.getElementById("courseTitle").value
-//         || !document.getElementById("projectName").value || !document.getElementById("supervisorName").value) {
-//             alert("Please fill in all required fields");
-//         }};
+function myFunction(){
+    if (!document.getElementById("nameInput").value || !document.getElementById("loginInput").value || !document.getElementById("courseTitle").value
+        || !document.getElementById("projectName").value || !document.getElementById("supervisorName").value) {
+            alert("Please fill in all required fields");
+        }};
