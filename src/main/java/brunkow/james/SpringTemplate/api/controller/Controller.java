@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
+@CrossOrigin(origins = "http://localhost:8081")
 public class Controller {
     
     private final UserRepository userRepository;

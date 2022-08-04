@@ -15,26 +15,32 @@ public class Mapper {
         userDto.setProjectName(user.getProjectName());
         userDto.setSupervisor1Name(user.getSupervisor1Name());
         userDto.setSupervisor1Email(user.getSupervisor1Email());
-        userDto.setGroupProject(user.getGroupProject());
         userDto.setSupervisor2Name(user.getSupervisor2Name());
         userDto.setSupervisor2Email(user.getSupervisor2Email());
+        userDto.setSpecialResourcesCheck(user.getSpecialResourcesCheck());
+        userDto.setSpecialResourcesText(user.getSpecialResourcesText());
+        userDto.setGroupProject(user.getGroupProject());
+        userDto.setEthicsReviewCheck(user.getEthicsReviewCheck());
+        userDto.setEthicsReviewText(user.getEthicsReviewText());
         userDto.setCybersecProject(user.getCybersecProject());
-        userDto.setEthicsRequired(user.getEthicsRequired());
         return userDto;
     }
     public User mapCreateUserRequestToUser(RegisterProjectRequestDto requestDto) {
         User user = new User();
-        user.setStudentId(requestDto.getStudentId());
-        user.setStudentName(requestDto.getStudentName());
-        user.setDegreeTitle(requestDto.getDegreeTitle());
-        user.setProjectName(requestDto.getProjectName());
-        user.setSupervisor1Name(requestDto.getSupervisor1Name());
-        user.setSupervisor1Email(requestDto.getSupervisor1Email());
-        user.setGroupProject(requestDto.getGroupProject());
-        user.setSupervisor2Name(requestDto.getSupervisor2Name());
-        user.setSupervisor2Email(requestDto.getSupervisor2Email());
-        user.setCybersecProject(requestDto.getCybersecProject());
-        user.setEthicsRequired(requestDto.getEthicsRequired());
+        user.setStudentId(user.getStudentId());
+        user.setStudentName(user.getStudentName());
+        user.setDegreeTitle(user.getDegreeTitle());
+        user.setProjectName(user.getProjectName());
+        user.setSupervisor1Name(user.getSupervisor1Name());
+        user.setSupervisor1Email(user.getSupervisor1Email());
+        user.setSupervisor2Name(user.getSupervisor2Name());
+        user.setSupervisor2Email(user.getSupervisor2Email());
+        user.setSpecialResourcesCheck(user.getSpecialResourcesCheck());
+        user.setSpecialResourcesText(user.getSpecialResourcesText());
+        user.setGroupProject(user.getGroupProject());
+        user.setEthicsReviewCheck(user.getEthicsReviewCheck());
+        user.setEthicsReviewText(user.getEthicsReviewText());
+        user.setCybersecProject(user.getCybersecProject());
         return user;
     }
 }
