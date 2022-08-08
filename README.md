@@ -64,3 +64,22 @@ To test the api (mac/linux only):
 
 `curl --request GET 'http://localhost:8080/getusers' --header 'Content-Type: text/plain'`
 
+
+### Uploading excel
+Use provided excel file to upload.
+If using other excel files, headers in excel must be changed to match variable names of the database
+
+student_id
+student_name   
+degree_title
+project_name
+supervisor_1_name
+supervisor_1_email
+supervisor_2_name
+supervisor_2_email
+special_resources_check
+special_resources_text
+ethics_review_text
+ethics_review_check
+cybersec_project
+group_project
