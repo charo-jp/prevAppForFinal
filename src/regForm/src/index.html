@@ -7,7 +7,8 @@
 
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.min.js"></script>
+
     <title> Project Registration</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -81,20 +82,15 @@
             <button type="button" class="btn btn-outline-primary btn-sm" style="display: none" id="checkList">Ethics Checklist</button>
             <textarea class="form-control text-input" id="ethicsReviewInput" rows="6" placeholder="should fill out this box with a brief description of the project and how human participants are involved" style="display: none"></textarea>
           </div>
-
-
-
             <pre id="jsonData"></pre>          
           <button onclick="sendJSON()" class="btn btn-primary" id="submitForm">Submit</button>
-
-          <!-- Excel file upload -->
-          <input type="file" id="fileUpload" accept=".xls,.xlsx" />
-          <button class="btn btn-primary" id="excelButton">Convert</button>
-
-
-          <!-- Prints results from server
-          <p class="result" style="color:green"></p>
-         -->
+          <br>
+          <input type="file" id="file_upload" />
+          <button onclick="upload()">Upload</button>	
+          <br>
+          <br>
+          <!-- container to display the json result -->
+          <textarea id="json-result" style="display:none;height:500px;width:750px;"></textarea>
       </section>
     </div>
 
