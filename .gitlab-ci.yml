@@ -18,11 +18,16 @@ stages:          # List of stages for jobs, and their order of execution
   - test
   - deploy
 
+
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
+  image: docker
+  services:
+    - docker:dind
   script:
-    - echo "Compiling the code..."
-    - echo "Compile complete."
+    - docker login git.cs.kent.ac.uk:5050
+    - docker build -t git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager .
+    - docker push git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
