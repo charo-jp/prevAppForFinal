@@ -7,9 +7,9 @@ variables:
 
 build:      # This job runs in the build stage, which runs first.
   stage: build
-  image: docker:18-git
+  image: docker:20-git
   services:
-    - docker:18-dind
+    - docker:20-dind
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN https://git.cs.kent.ac.uk/jwb50/final-year-project-manager/
     - docker build -f Dockerfile --tag ${IMAGE_NAME}:${CI_COMMIT_SHORT_SHA} .
@@ -18,7 +18,7 @@ build:      # This job runs in the build stage, which runs first.
     # This job runs in the deploy stage.
 deploy:
   stage: deploy
-  image: alpine/helm:3.5.4
+  image: alpine/helm:3.9.1
   tags:
     - preprod
     - kubernetes
