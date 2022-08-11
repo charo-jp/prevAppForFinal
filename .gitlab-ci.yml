@@ -4,7 +4,6 @@ stages:          # List of stages for jobs, and their order of execution
   - deploy
 variables:
   IMAGE_NAME: git.cs.kent.ac.uk/jwb50/final-year-project-manager
-  DOCKER_HOST: tcp://localhost:2375/ #Not sure this is right
 
 build:      # This job runs in the build stage, which runs first.
   stage: build
