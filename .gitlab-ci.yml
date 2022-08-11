@@ -16,16 +16,6 @@ build:      # This job runs in the build stage, which runs first.
     - docker build -f Dockerfile --tag ${IMAGE_NAME}:${CI_COMMIT_SHORT_SHA} .
     - docker push ${IMAGE_NAME}:${CI_COMMIT_SHORT_SHA}
 
-build-job:       # This job runs in the build stage, which runs first.
-  stage: build
-  image: docker
-  services:
-    - docker:dind
-  script:
-    - docker login git.cs.kent.ac.uk:5050
-    - docker build -t git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager .
-    - docker push git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager
-
     # This job runs in the deploy stage.
 deploy:
   stage: deploy
