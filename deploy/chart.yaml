@@ -1,0 +1,12 @@
+# https://gitlab.com/nextlink/public-examples/sample-helm-cicd/-/tree/master/
+apiVersion: v2
+name: deploy
+description: A Helm chart for Kubernetes
+
+# Chart version
+# follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# App version
+# Does not need to follow Semantic Versioning
+appVersion: 0.1.0

@@ -1,0 +1,13 @@
+# https://gitlab.com/nextlink/public-examples/sample-helm-cicd/-/tree/master/
+replicaCount: 1
+application:
+  name: springapp
+  port: 80
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
