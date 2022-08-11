@@ -4,12 +4,12 @@ stages:          # List of stages for jobs, and their order of execution
   - deploy
 variables:
   IMAGE_NAME: git.cs.kent.ac.uk/jwb50/final-year-project-manager
-
+services:
+  - docker:20-dind
+  -
 build:      # This job runs in the build stage, which runs first.
   stage: build
   image: docker:20-git
-  services:
-    - docker:20-dind
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN https://git.cs.kent.ac.uk/jwb50/final-year-project-manager/
     - docker build -f Dockerfile --tag ${IMAGE_NAME}:${CI_COMMIT_SHORT_SHA} .
