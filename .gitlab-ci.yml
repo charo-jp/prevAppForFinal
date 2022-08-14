@@ -9,7 +9,7 @@ variables:
   DOCKER_TLS_CERTDIR: ""
 
 
-docker:image:
+docker:backend:
   stage: build
   image: docker
   services:
@@ -22,7 +22,7 @@ docker:image:
     - docker push $CI_REGISTRY_IMAGE:latest_RegForm_backend
 
 docker:frontend:
-  stage: buildFrontend
+  stage: build
   image: docker
   services:
     - docker:dind
