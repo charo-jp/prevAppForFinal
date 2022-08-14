@@ -5,6 +5,9 @@ stages:          # List of stages for jobs, and their order of execution
 variables:
   IMAGE_NAME: git.cs.kent.ac.uk/jwb50/final-year-project-manager
   DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+
 
 docker:image:
   stage: build
@@ -19,13 +22,13 @@ docker:image:
     - docker push $CI_REGISTRY_IMAGE:latest
 
     # This job runs in the deploy stage.
-deploy:
-  stage: deploy
-  image: alpine/helm:3.9.1
-  tags:
-    - preprod
-    - kubernetes
-  script:
-    - helm upgrade final-year-project-manager ./deploy --install --set-string image.tag=${CI_COMMIT_SHORT_SHA} --namespace final-year-project-manager --timeout 30m0s
+#deploy:
+ # stage: deploy
+  #image: alpine/helm:3.9.1
+  #tags:
+  #  - preprod
+  #  - kubernetes
+  #script:
+  #  - helm upgrade final-year-project-manager ./deploy --install --set-string image.tag=${CI_COMMIT_SHORT_SHA} --namespace final-year-project-manager --timeout 30m0s
 
 
