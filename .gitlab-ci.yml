@@ -16,10 +16,23 @@ docker:image:
     - docker:dind
   script:
     - docker version
-    - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:latest
+    - docker build -t $CI_REGISTRY_IMAGE:latest_RegForm_backend .
+    - docker tag $CI_REGISTRY_IMAGE:latest_RegForm_backend $CI_REGISTRY_IMAGE:latest_RegForm_backend
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
-    - docker push $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest_RegForm_backend
+
+docker:frontend:
+  stage: buildFrontend
+  image: docker
+  services:
+    - docker:dind
+  script:
+    - docker version
+    - docker build -f src/regForm/Dockerfile -t $CI_REGISTRY_IMAGE:latest_RegForm_frontend .
+    - docker tag $CI_REGISTRY_IMAGE:latest_RegForm_frontend $CI_REGISTRY_IMAGE:latest_RegForm_frontend
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE:latest_RegForm_frontend
+
 
     # This job runs in the deploy stage.
 #deploy:
