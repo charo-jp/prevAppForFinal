@@ -3,6 +3,8 @@ COPY . .
 RUN chmod +x gradlew
 RUN dos2unix gradlew
 RUN ./gradlew --no-daemon --console plain --info check bootJar
-COPY build/libs/*.jar SpringBootTest.jar
+
+FROM openjdk:17-alpine3.14
+COPY --from=gradle_build_jar build/libs/*.jar FYP.jar
 EXPOSE 80
-ENTRYPOINT ["java", "-jar", "/SpringBootTest.jar"]
+ENTRYPOINT ["java", "-jar", "/FYP.jar"]
