@@ -23,14 +23,18 @@
 
       <form>
         <div class="mb-3">
-            <label for="loginInput" class="form-label">Your login</label>
-            <input type="email" class="form-control" id="loginInput" placeholder="jbh2" required>
-          </div>
+          <label for="loginInput" class="form-label">Your login</label>
+          <input type="email" class="form-control" id="loginInput" placeholder="jbh2" required>
+        </div>
 
-          <div class="mb-3">
-            <button onclick="getLogin()" id="signIn" class="btn btn-primary" id="signIn">Login</button>
-          </div>
-          
+        <div class="mb-3">
+          <p class="text-danger" id ="noStudentIdWarning" style="display: none">Please enter a valid login</p>
+        </div>
+
+        <div class="mb-3">
+          <button onclick="getLogin()" id="signIn" class="btn btn-primary" id="signIn">Login</button>
+        </div>
+        
         </div>
     
         <script src="js/login.js"></script>
