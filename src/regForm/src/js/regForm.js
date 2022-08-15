@@ -145,3 +145,9 @@ async function sendJSON(){
           console.error(e);
       }
     }
+
+    function getName() {
+      fetch('http://localhost:8080/getusers')
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+    }
