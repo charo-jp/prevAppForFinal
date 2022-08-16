@@ -113,14 +113,14 @@ async function sendJSON(){
       reader.onload = function(e) {
 
           var data = e.target.result;
-          var workbook = XLSX.read(data, {
+          var excel = XLSX.read(data, {
               type : 'binary'
           });
           var result = {};
-          workbook.SheetNames.forEach(function(sheetName) {
-          var roa = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-          if (roa.length > 0) {
-              result[sheetName] = roa;
+          excel.SheetNames.forEach(function(sheetName) {
+          var row = XLSX.utils.sheet_to_row_object_array(excel.Sheets[sheetName]);
+          if (row.length > 0) {
+              result[sheetName] = row;
               console.log(Object.values(result[sheetName][5]));
               for (i=0; i< result[sheetName].length; ++i){
               fetch('http://localhost:8080/registerUser', {
@@ -146,8 +146,87 @@ async function sendJSON(){
       }
     }
 
-    function getName() {
-      fetch('http://localhost:8080/getusers')
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+  async function getName() {
+    let repName = $('#nameReport').val();
+    let url = 'http://localhost:8080/getusers';
+    let response = await fetch(url);
+    let searchType = $('#searchType').value;
+    var data = await response.json();
+    studentsArray = [];
+
+    //TO DO figure out cleaner way to do this than if statements
+    // Change search parameter based on what was selected in the form
+    if (searchType = 1){
+    for( i =0; i < data.length; i++) {
+      if(repName == data[i].student_name) {
+          studentsArray.push(data[i]);
+      }
+    }}
+    if (searchType = 2){
+      for( i =0; i < data.length; i++) {
+        if(repName == data[i].supervisor_1_name) {
+            studentsArray.push(data[i]);
+        }
+      }}
+    if (searchType = 3){
+      for( i =0; i < data.length; i++) {
+        if(repName == data[i].student_id) {
+            studentsArray.push(data[i]);
+        }
+      }}
+    if (searchType = 4){
+      for( i =0; i < data.length; i++) {
+        if(repName == data[i].project_name) {
+            studentsArray.push(data[i]);
+        }
+      }}
+    if (searchType = 5){
+      for( i =0; i < data.length; i++) {
+        if(repName == data[i].degree_title) {
+            studentsArray.push(data[i]);
+        }
+      }}
+
+
+    if (studentsArray.length == 0) {
+      console.log("Student does not exist");
     }
+    console.log(studentsArray);
+
+    var CSV = 'sep=,' + '\r\n\n';
+
+        var value = "";
+        //This loop will extract the label from 1st index of on array
+        for (var index in studentsArray[0]) {
+            //Now convert each value to string and comma-seprated
+            value += index + ',';
+        }
+        //Add values to CSV
+        value = value.slice(0, -1);
+        CSV += value + '\r\n';
+    
+    //Double for loop to extract specific values
+    for (var i = 0; i < studentsArray.length; i++) {
+        var value = "";
+        for (var index in studentsArray[i]) {
+            value += '"' + studentsArray[i][index] + '",';
+        }
+        value.slice(0, value.length - 1);
+        CSV += value + '\r\n';
+    }
+    
+    //Create element to link file to
+    var link = document.createElement("a");    
+    // Convert CSV into csv file and link to element
+    link.href = 'data:text/csv;charset=utf-8,' + escape(CSV);
+    
+    //Hide element and use to download file automatically
+    link.style = "visibility:hidden";
+    link.download = repName + ".csv";
+    
+    //Remove element after downloading the file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  
+  }

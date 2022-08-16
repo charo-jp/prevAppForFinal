@@ -94,8 +94,17 @@
       </section>
       <section>
         <div class="form-group">
-          <label for="nameReport">Full name</label>
-          <input type="text" class="form-control" id="nameReport" placeholder="Enter a name to generate a report">
+          <label for="searchType">Choose search type:</label>
+          <select name = "searchType" id = "searchType">
+            <option value = 1>Student</option>
+            <option value = 2>Supervisor</option>
+            <option value = 3>Student ID</option>
+            <option value = 4>Project</option>
+            <option value = 5>Degree</option>
+          </select>
+          <br>
+          <label for="nameReport">Search</label>
+          <input type="text" class="form-control" id="nameReport" placeholder="Enter a parameter to generate a report">
         </div>
         <div>
           <button onclick="getName()" class="btn btn-primary" id="Generate Report">Submit</button>
