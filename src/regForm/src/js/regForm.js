@@ -150,75 +150,53 @@ async function sendJSON(){
     let repName = $('#nameReport').val();
     let url = 'http://localhost:8080/getusers';
     let response = await fetch(url);
-    let searchType = $('#searchType').value;
+    let searchType = document.getElementById("searchType").value;
     var data = await response.json();
-    studentsArray = [];
+    jsonArray = [];
+    console.log(searchType);
+    const searchArray = ["student_name", "supervisor_1_name", "student_id", "project_name", "degree_title"];
+    var x = searchArray[searchType];
 
-    //TO DO figure out cleaner way to do this than if statements
-    // Change search parameter based on what was selected in the form
-    if (searchType = 1){
+
     for( i =0; i < data.length; i++) {
-      if(repName == data[i].student_name) {
-          studentsArray.push(data[i]);
+      if(repName == data[i][x]) {
+          jsonArray.push(data[i]);
       }
-    }}
-    if (searchType = 2){
-      for( i =0; i < data.length; i++) {
-        if(repName == data[i].supervisor_1_name) {
-            studentsArray.push(data[i]);
-        }
-      }}
-    if (searchType = 3){
-      for( i =0; i < data.length; i++) {
-        if(repName == data[i].student_id) {
-            studentsArray.push(data[i]);
-        }
-      }}
-    if (searchType = 4){
-      for( i =0; i < data.length; i++) {
-        if(repName == data[i].project_name) {
-            studentsArray.push(data[i]);
-        }
-      }}
-    if (searchType = 5){
-      for( i =0; i < data.length; i++) {
-        if(repName == data[i].degree_title) {
-            studentsArray.push(data[i]);
-        }
-      }}
-
-
-    if (studentsArray.length == 0) {
-      console.log("Student does not exist");
     }
-    console.log(studentsArray);
 
-    var CSV = 'sep=,' + '\r\n\n';
+
+    if (jsonArray.length == 0) {
+      console.log("Student does not exist");
+      return;
+    }
+    console.log(jsonArray);
+
+    var excel = 'sep=,' + '\r\n\n';
 
         var value = "";
         //This loop will extract the label from 1st index of on array
-        for (var index in studentsArray[0]) {
+        for (var index in jsonArray[0]) {
             //Now convert each value to string and comma-seprated
             value += index + ',';
         }
-        //Add values to CSV
+        //Add values to excel variable
         value = value.slice(0, -1);
-        CSV += value + '\r\n';
+        excel += value + '\r\n';
     
     //Double for loop to extract specific values
-    for (var i = 0; i < studentsArray.length; i++) {
+    for (var i = 0; i < jsonArray.length; i++) {
         var value = "";
-        for (var index in studentsArray[i]) {
-            value += '"' + studentsArray[i][index] + '",';
+        for (var index in jsonArray[i]) {
+            value += '"' + jsonArray[i][index] + '",';
         }
         value.slice(0, value.length - 1);
-        CSV += value + '\r\n';
+        excel += value + '\r\n';
     }
     
     //Create element to link file to
     var link = document.createElement("a");    
-    // Convert CSV into csv file and link to element
-    link.href = 'data:text/csv;charset=utf-8,' + escape(CSV);
+    // Convert excel into excel file and link to element
+    link.href = 'data:text/csv;charset=utf-8,' + escape(excel);
     
     //Hide element and use to download file automatically
     link.style = "visibility:hidden";
