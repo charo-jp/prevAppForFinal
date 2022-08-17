@@ -166,7 +166,7 @@ async function sendJSON(){
 
 
     if (jsonArray.length == 0) {
-      console.log("Data does not exist");
+      alert("Data does not exist");
       return;
     }
     console.log(jsonArray);
