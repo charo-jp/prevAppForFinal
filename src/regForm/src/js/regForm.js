@@ -40,22 +40,19 @@ async function getUser() {
     try {
         let response = await fetch(url);
         var data = await response.json();
-        // console.log(data);
+        
     } catch (error) {
         console.log(error);
     }
-    // console.log(data);
 
     studentsArray = [];
     for( i =0; i < data.length; i++) {
         if(studentCookieToObj.login == data[i].student_id) {
-            console.log('is student');
             studentsArray.push(data[i].student_id);
         }
     }
 
     if(studentsArray.length >= 1 ){
-        console.log(studentsArray);
         //hide elements not for students
         $('#fileUpload').css('display', 'none');
         $('#excelButton').css('display', 'none');
