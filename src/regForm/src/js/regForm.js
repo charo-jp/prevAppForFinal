@@ -21,6 +21,53 @@ $('#ethicsReviewCheck').click(function() {
 
 });
 
+//************ */
+//******Controlling what students can see****** */
+//************ */
+
+  //getting id student loged in with from cookie
+  var studentCookieToObj = document.cookie.split(';')
+  .map(cookie => cookie.split('='))
+  .reduce((accumulator, [key, value]) =>
+      ({ ... accumulator, [key.trim()]: decodeURIComponent(value) }),
+        {});
+
+//geting logged in user's detail
+async function getUser() {
+    let login = $('#loginInput').val();
+    let url = 'http://localhost:8080/getusers';
+
+    try {
+        let response = await fetch(url);
+        var data = await response.json();
+        // console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
+    // console.log(data);
+
+    studentsArray = [];
+    for( i =0; i < data.length; i++) {
+        if(studentCookieToObj.login == data[i].student_id) {
+            console.log('is student');
+            studentsArray.push(data[i].student_id);
+        }
+    }
+
+    if(studentsArray.length >= 1 ){
+        console.log(studentsArray);
+        //hide elements not for students
+        $('#fileUpload').css('display', 'none');
+        $('#excelButton').css('display', 'none');
+    } 
+}
+
+
+
+//********** */
+//*****END of Student Control***** */
+//********** */
+
 
 async function sendJSON(){
     //storing input variables

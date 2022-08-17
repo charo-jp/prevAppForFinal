@@ -26,8 +26,15 @@ async function getLogin() {
     // if login exist then take them to register project url
     if(studentsArray.length >= 1 ){
         console.log(studentsArray);
-        window.location.href = "http://localhost:8081";
+        // window.location.href = "http://localhost:8081"; //remove later
+        // Cookies.set('student', 'true');
     } else {
         $('#noStudentIdWarning').show();
     }
+
+    let studentCookie = studentsArray[0];
+    studentCookieToString = "login="+studentCookie;
+    console.log(studentCookieToString);
+    document.cookie = studentCookieToString;
+    console.log(document.cookie);
 }
