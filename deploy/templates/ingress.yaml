@@ -1,25 +1,15 @@
-# https://gitlab.com/nextlink/public-examples/sample-helm-cicd/-/tree/master/
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: { { .Values.application.name } }
-  namespace: { { .Values.application.name } }
+  name: ingress
   annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
-    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: your-domain.com #This needs changing to whatever the ngrok url is
+    - host: springapp
       http:
         paths:
-          - path: /*
-            backend:
-              serviceName: ssl-redirect
-              servicePort: use-annotation
-          - path: /*
-            backend:
-              serviceName: { { .Values.application.name } }
+          - backend:
+              serviceName: api
               servicePort: 80
+            path: /

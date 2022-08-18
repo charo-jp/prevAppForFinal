@@ -34,14 +34,14 @@ docker:frontend:
     - docker push $CI_REGISTRY_IMAGE:latest_RegForm_frontend
 
 
-    # This job runs in the deploy stage.
-#deploy:
- # stage: deploy
-  #image: alpine/helm:3.9.1
-  #tags:
-  #  - preprod
-  #  - kubernetes
-  #script:
-  #  - helm upgrade final-year-project-manager ./deploy --install --set-string image.tag=${CI_COMMIT_SHORT_SHA} --namespace final-year-project-manager --timeout 30m0s
+    This job runs in the deploy stage.
+deploy:
+   stage: deploy
+  image: alpine/helm:3.9.1
+  tags:
+    - preprod
+    - kubernetes
+  script:
+    - helm upgrade final-year-project-manager ./deploy --install --set-string image.tag=${CI_COMMIT_SHORT_SHA} --namespace final-year-project-manager --timeout 30m0s
 
 

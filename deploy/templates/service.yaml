@@ -1,14 +1,15 @@
-# https://gitlab.com/nextlink/public-examples/sample-helm-cicd/-/tree/master/
 apiVersion: v1
 kind: Service
 metadata:
-  name: { { .Values.application.name } }
-  namespace: { { .Values.application.name } }
+  name: api
+  labels:
+    run: api
 spec:
+  type: ClusterIP
   ports:
-    - port: { { .Values.application.port } }
-      targetPort: { { .Values.application.port } }
+    - port: 80
+      targetPort: 80
       protocol: TCP
-  type: NodePort
+      name: http
   selector:
-    app: { { .Values.application.name } }
+    run: api

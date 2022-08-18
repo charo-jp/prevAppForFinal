@@ -1,21 +1,29 @@
-# https://gitlab.com/nextlink/public-examples/sample-helm-cicd/-/tree/master/
-apiVersion: apps/v1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: "{ { .Values.application.name } }"
+  name: springapp
 spec:
-  replicas: { { .Values.replicaCount } }
-  selector:
-    matchLabels:
-      app: { { .Values.application.name } }
+  replicas: 1
   template:
     metadata:
       labels:
-        app: { { .Values.application.name } }
+        run: springapp
     spec:
       containers:
-        - name: { { .Values.application.name } }
-          image: "{ { .Values.image.repository } }:{ { .Values.image.tag } }"
-          resources: { { - toYaml .Values.resources | nindent 12 } }
+        - name: springapp
+          image: git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager:latest_RegForm_backend
+          imagePullPolicy: Always
           ports:
-            - containerPort: { { .Values.application.port } }
+            - containerPort: 80
+          env:
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: org.postgresql.driver
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://example:5432/postgres?currentSchema=example_schema&ssl=false
+            - name: SPRING_DATASOURCE_USERNAME
+              value: appuser
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: app-database-pwd
+                  name: DBPwd
