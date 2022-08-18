@@ -121,8 +121,36 @@ async function sendJSON(){
           var row = XLSX.utils.sheet_to_row_object_array(excel.Sheets[sheetName]);
           if (row.length > 0) {
               result[sheetName] = row;
-              console.log(Object.values(result[sheetName][5]));
+              if (("student_id" in result[sheetName][1]) == false){
+                alert("Invalid excel format. student_id must be a header for student ids");
+                return;
+              }
+              if (("student_name" in result[sheetName][1]) == false){
+                alert("Invalid excel format. student_name must be a header for student names");
+                return;
+              }
+              if (("degree_title" in result[sheetName][1]) == false){
+                alert("Invalid excel format. degree_title must be a header for degree titles");
+                return;
+              }
+              if (("supervisor_1_name" in result[sheetName][1]) == false){
+                alert("Invalid excel format. supervisor_1_name must be a header for supervisor names");
+                return;
+              }
+
+        
               for (i=0; i< result[sheetName].length; ++i){
+              // Test if student_id data is alphanumeric. If doesn't contain numbers and letters, throw alert warning of accepted format
+              if (/\d/.test(result[sheetName][i].student_id) == false && result[sheetName][i].student_id != null){
+                alert("Invalid excel data. Student ID should contain letters and numbers e.g. 'abd123'");
+                return;
+              }
+              if (/[a-zA-Z]/.test(result[sheetName][i].student_id) == false && result[sheetName][i].student_id != null){
+                alert("Invalid excel data. Student ID should contain letters and numbers e.g. 'abd123'");
+                return;
+              }
+
+
               fetch('http://localhost:8080/registerUser', {
                 method: 'POST',
                 headers: {
@@ -131,15 +159,15 @@ async function sendJSON(){
                 body: JSON.stringify(result[sheetName][i]),
                 })
             }
-          }
-        });
-          //displaying the json result
-          var resultEle=document.getElementById("json-result");
-          resultEle.value=JSON.stringify(result, null, 4);
-          var eData = JSON.stringify(result, null, 4);
-          resultEle.style.display='block';
-          console.log(Object.values(eData[10]));
-        //   console.log(Object.keys(roa [0]));
+
+        }});
+          // displaying the json result (TESTING ONLY)
+          // var resultEle=document.getElementById("json-result");
+          // resultEle.value=JSON.stringify(result, null, 4);
+          // var eData = JSON.stringify(result, null, 4);
+          // resultEle.style.display='block';
+          // console.log(Object.values(eData[10]));
+          // console.log(Object.keys(roa [0]));
           }
       }catch(e){
           console.error(e);
@@ -153,7 +181,6 @@ async function sendJSON(){
     let searchType = document.getElementById("searchType").value;
     var data = await response.json();
     jsonArray = [];
-    console.log(searchType);
     const searchArray = ["student_name", "supervisor_1_name", "student_id", "project_name", "degree_title"];
     var x = searchArray[searchType];
 
@@ -169,7 +196,7 @@ async function sendJSON(){
       alert("Data does not exist");
       return;
     }
-    console.log(jsonArray);
+    // console.log(jsonArray);
 
     var excel = 'sep=,' + '\r\n\n';
 
