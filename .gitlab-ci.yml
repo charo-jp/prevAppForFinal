@@ -1,5 +1,5 @@
 
-stages:          # List of stages for jobs, and their order of execution
+stages:
   - build
   - deploy
 variables:
@@ -34,7 +34,6 @@ docker:frontend:
     - docker push $CI_REGISTRY_IMAGE:latest_RegForm_frontend
 
 
-    This job runs in the deploy stage.
 deploy:
    stage: deploy
   image: alpine/helm:3.9.1
