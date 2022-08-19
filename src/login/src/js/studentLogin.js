@@ -12,21 +12,28 @@ async function getLogin() {
 
     //loop through array of object from response, if student id matches with login
     //then add that login to an array.
-    studentsArray = [];
+    loginArr = [];
+    // supervisorArray = [];
     for( i =0; i < data.length; i++) {
-        if(login == data[i].student_id) {
-            studentsArray.push(data[i].student_id);
+        if(login == data[i].student_id) {//add the student login to the array
+            loginArr.push(data[i].student_id);
+        }else if(login == data[i].supervisor_1_email) {//add supervisor email to arry
+            loginArr.push(data[i].supervisor_1_email); 
         }
     }
     
+    
     // if login exist then take them to register project url
-    if(studentsArray.length >= 1 ){
+    if(loginArr.length >= 1 ){//if student login array is not empty
         window.location.href = "http://localhost:8081"; //remove later
-    } else {
+    } else if(loginArr.length >=1 ) {//if supervisor login array is not empty
+        console.log('is supervisor');
+    }else {
         $('#noStudentIdWarning').show();
     }
 
-    let studentCookie = studentsArray[0];
-    studentCookieToString = "login="+studentCookie;
-    document.cookie = studentCookieToString;
+    //dealing with cookies
+    let loginCookie = loginArr[0];
+    loginCookieToString = "login="+loginCookie;
+    document.cookie = loginCookieToString;
 }
