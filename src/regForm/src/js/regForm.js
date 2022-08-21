@@ -22,7 +22,7 @@ $('#ethicsReviewCheck').click(function() {
 });
 
 //************ */
-//******Controlling what students can see****** */
+//******Permission control****** */
 //************ */
 
   //getting id student loged in with from cookie
@@ -50,7 +50,7 @@ async function getUser() {
     studentLoginId = [];
     supervisor1EmailLogin = [];
 
-    for( i =0; i < data.length; i++) {
+    for( i = 0; i < data.length; i++) {
         //if requested login is the same as the cookie login
         if(loginCookieToObj.login == data[i].student_id) {
             logingArray.push(data[i].student_id);
@@ -63,12 +63,39 @@ async function getUser() {
             console.log('User does not exist');
         }
     }
-    const dataLogin = logingArray[0];
 
+    //storing student registered to project of supervisor
+    studentRegisteredArr = [];
+    for( i = 0; i < data.length; i++) {
+        if(loginCookieToObj.login == data[i].supervisor_1_email ) {
+            studentRegisteredObj = {
+                registeredStudentName: data[i].student_name,
+                registeredStudentLogin: data[i].student_id,
+                registeredStudentProjectName: data[i].project_name,
+            };
+            studentRegisteredArr.push(studentRegisteredObj);
+        }
+    }
+    console.log(studentRegisteredArr);
+    //list of students registered list in array
+    registeredStudentListMessage = [];
+    for( i = 0; i < studentRegisteredArr.length; i++) {
+        let message = studentRegisteredArr[i].registeredStudentName + " is registered to " + studentRegisteredArr[i].registeredStudentProjectName;
+        registeredStudentListMessage.push(message);
+    }
+    
+    //add li element to table
+    for( i = 0; i < registeredStudentListMessage.length; i++) {
+        let createLiElement = '<li class="list-group-item" >' + registeredStudentListMessage[i] + '</li>';
+        $('#registeredStudentsList').append(createLiElement);
+    }
+
+    const dataLogin = logingArray[0];
     if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
         //handling elements not for students
         $('#fileUpload').css('display', 'none');
         $('#excelButton').css('display', 'none');
+        $('#RegisteredStudents').css('display', 'none');
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
         welcomeMessage.textContent += ' ' + loginName[0] + '{student}';
@@ -77,9 +104,12 @@ async function getUser() {
         //handling elements for supervisor
         $('.form-group').css('display', 'none');
         $('#tickText').css('display', 'none');
+        $('#submitForm').css('display', 'none');
+        $('#fileUpload').css('display', 'none');
+        $('#excelButton').css('display', 'none');
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
-        welcomeMessage.textContent += ' ' + loginName[0] + ', {supervisor}';
+        welcomeMessage.textContent += ' ' + loginName[0];
         console.log('Hi supervisor');
     }
 }
@@ -87,7 +117,7 @@ async function getUser() {
 
 
 //********** */
-//*****END of Student Control***** */
+//*****END of Persmission Control***** */
 //********** */
 
 
