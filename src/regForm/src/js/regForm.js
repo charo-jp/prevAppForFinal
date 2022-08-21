@@ -44,35 +44,42 @@ async function getUser() {
     } catch (error) {
         console.log(error);
     }
-
+    console.log(data);
     logingArray = [];
+    loginName = [];
+    studentLoginId = [];
+    supervisor1EmailLogin = [];
+
     for( i =0; i < data.length; i++) {
         //if requested login is the same as the cookie login
         if(loginCookieToObj.login == data[i].student_id) {
             logingArray.push(data[i].student_id);
+            loginName.push(data[i].student_name);
+            studentLoginId.push(data[i].student_id);
         }else if(loginCookieToObj.login == data[i].supervisor_1_email ) {
             logingArray.push(data[i].supervisor_1_email);
+            loginName.push(data[i].supervisor_1_name);
+        }else {
+            console.log('User does not exist');
         }
     }
-    // console.log(data[0].student_id);
-    // console.log(logingArray[0]);
-    console.log(data[0].supervisor_1_email);
     const dataLogin = logingArray[0];
 
-    if(logingArray.length >= 1 && data[0].student_id == dataLogin){
+    if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
         //handling elements not for students
         $('#fileUpload').css('display', 'none');
         $('#excelButton').css('display', 'none');
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
-        welcomeMessage.textContent += ' ' + data[0].student_name + '{student}';
-    } else if(logingArray.length >= 1 && data[0].supervisor_1_email == dataLogin) {
+        welcomeMessage.textContent += ' ' + loginName[0] + '{student}';
+    } else if(logingArray.length >= 1 && logingArray[0] == dataLogin) {
+        
         //handling elements for supervisor
         $('.form-group').css('display', 'none');
         $('#tickText').css('display', 'none');
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
-        welcomeMessage.textContent += ' ' + data[0].supervisor_1_name + ', {supervisor}';
+        welcomeMessage.textContent += ' ' + loginName[0] + ', {supervisor}';
         console.log('Hi supervisor');
     }
 }
@@ -88,7 +95,7 @@ async function sendJSON(){
     //storing input variables
     var studentId = document.getElementById("loginInput").value;
     var studentName = document.getElementById("nameInput").value;
-    var degreeTitle = document.getElementById("courseTitle").value;
+    var degreeTitle = $("#courseTitle").find(":selected").text();
     var projectName = document.getElementById("projectName").value;
     var supervisor1Name = document.getElementById("supervisor1Name").value;
     var supervisor1Email = document.getElementById("supervisor1Email").value;
