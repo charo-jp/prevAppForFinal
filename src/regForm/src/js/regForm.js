@@ -193,8 +193,8 @@ document.getElementById('excelButton').addEventListener("click", () => {
     }
 });
 
-// function myFunction(){
-//     if (!document.getElementById("nameInput").value || !document.getElementById("loginInput").value || !document.getElementById("courseTitle").value
-//         || !document.getElementById("projectName").value || !document.getElementById("supervisorName").value) {
-//             alert("Please fill in all required fields");
-//         }};
+function myFunction(){
+    if (!document.getElementById("nameInput").value || !document.getElementById("loginInput").value || !document.getElementById("courseTitle").value
+        || !document.getElementById("projectName").value || !document.getElementById("supervisorName").value) {
+            alert("Please fill in all required fields");
+        }};
