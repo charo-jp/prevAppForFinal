@@ -60,17 +60,10 @@ async function getUser() {
             logingArray.push(data[i].supervisor_1_email);
             loginName.push(data[i].supervisor_1_name);
         }else {
-            console.log('HERE');
+            console.log('User does not exist');
         }
     }
-    console.log(studentLoginId[0]);
-    // console.log(data[0].student_id);
-    // console.log(logingArray[0]);
-    console.log("Not right " + data[0].supervisor_1_email);
     const dataLogin = logingArray[0];
-
-    // Loop through data array, 
-    //get the instance of 
 
     if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
         //handling elements not for students
@@ -89,9 +82,6 @@ async function getUser() {
         welcomeMessage.textContent += ' ' + loginName[0] + ', {supervisor}';
         console.log('Hi supervisor');
     }
-
-    console.log(logingArray[0]);
-        console.log(data[0].supervisor_1_email);
 }
 
 
