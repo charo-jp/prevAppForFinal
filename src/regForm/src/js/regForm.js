@@ -88,7 +88,7 @@ async function sendJSON(){
     //storing input variables
     var studentId = document.getElementById("loginInput").value;
     var studentName = document.getElementById("nameInput").value;
-    var degreeTitle = document.getElementById("courseTitle").value;
+    var degreeTitle = $("#courseTitle").find(":selected").text();
     var projectName = document.getElementById("projectName").value;
     var supervisor1Name = document.getElementById("supervisor1Name").value;
     var supervisor1Email = document.getElementById("supervisor1Email").value;
@@ -193,8 +193,8 @@ document.getElementById('excelButton').addEventListener("click", () => {
     }
 });
 
-function myFunction(){
-    if (!document.getElementById("nameInput").value || !document.getElementById("loginInput").value || !document.getElementById("courseTitle").value
-        || !document.getElementById("projectName").value || !document.getElementById("supervisorName").value) {
-            alert("Please fill in all required fields");
-        }};
+// function myFunction(){
+//     if (!document.getElementById("nameInput").value || !document.getElementById("loginInput").value || !document.getElementById("courseTitle").value
+//         || !document.getElementById("projectName").value || !document.getElementById("supervisorName").value) {
+//             alert("Please fill in all required fields");
+//         }};
