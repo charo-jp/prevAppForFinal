@@ -22,7 +22,7 @@ public class User {
     public String projectName;
     @Column(nullable = false, name = "supervisor_1_name")
     public String supervisor1Name;
-    @Column(nullable = false, name = "supervisor_1_email")
+    @Column(name = "supervisor_1_email")
     @Email
     public String supervisor1Email;
     @Column(name = "supervisor_2_name")
@@ -30,17 +30,17 @@ public class User {
     @Column(name = "supervisor_2_email")
     @Email
     public String supervisor2Email;
-    @Column(nullable = false)
+    @Column
     public Boolean specialResourcesCheck;
     @Column
     public String specialResourcesText;
-    @Column(nullable = false)
+    @Column
     public Boolean groupProject;
-    @Column(nullable = false)
+    @Column
     public Boolean ethicsReviewCheck;
     @Column
     public String ethicsReviewText;
-    @Column(nullable = false)
+    @Column
     public Boolean cybersecProject;
 
 

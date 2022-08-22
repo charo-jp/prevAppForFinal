@@ -24,27 +24,27 @@ public class RequestDto {
     @NotBlank(message = "supervisor1Name not found")
     @JsonProperty("supervisor_1_name")
     private String supervisor1Name;
-    @NotBlank(message = "supervisor1Email not found")
+    // @NotBlank(message = "supervisor1Email not found")
     @JsonProperty("supervisor_1_email")
     private String supervisor1Email;
     @JsonProperty("supervisor_2_name")
     private String supervisor2Name;
     @JsonProperty("supervisor_2_email")
     private String supervisor2Email;
-    @NotNull(message = "specialResourcesCheck quantifier not found")
+    // @NotNull(message = "specialResourcesCheck quantifier not found")
     @JsonProperty("special_resources_check")
     private Boolean specialResourcesCheck;
     @JsonProperty("special_resources_text")
     private String specialResourcesText;
-    @NotNull(message = "groupProject quantifier not found")
+    // @NotNull(message = "groupProject quantifier not found")
     @JsonProperty("group_project")
     private Boolean groupProject;
-    @NotNull(message = "ethicsReviewCheck quantifier not found")
+    // @NotNull(message = "ethicsReviewCheck quantifier not found")
     @JsonProperty("ethics_review_check")
     private Boolean ethicsReviewCheck;
     @JsonProperty("ethics_review_text")
     private String ethicsReviewText;
-    @NotNull(message = "cybersecProject quantifier not found")
+    // @NotNull(message = "cybersecProject quantifier not found")
     @JsonProperty("cybersec_project")
     private Boolean cybersecProject;
 
