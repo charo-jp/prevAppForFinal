@@ -177,13 +177,6 @@ async function sendJSON(){
             }
 
         }});
-          // displaying the json result (TESTING ONLY)
-          // var resultEle=document.getElementById("json-result");
-          // resultEle.value=JSON.stringify(result, null, 4);
-          // var eData = JSON.stringify(result, null, 4);
-          // resultEle.style.display='block';
-          // console.log(Object.values(eData[10]));
-          // console.log(Object.keys(roa [0]));
           }
       }catch(e){
           console.error(e);
@@ -211,7 +204,6 @@ async function sendJSON(){
       alert("Data does not exist");
       return;
     }
-    // console.log(jsonArray);
 
     var excel = 'sep=,' + '\r\n\n';
     var value = "";
