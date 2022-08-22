@@ -47,7 +47,9 @@ INSERT INTO projects
                  group_project ,
                  ethics_review_check ,
                  ethics_review_text ,
-                 cybersec_project
+                 cybersec_project,
+                 project_status,
+                 ethics_status
                  )
 VALUES      (
              'tt420',
@@ -63,5 +65,7 @@ VALUES      (
              '0',
              '0',
              '',
+             '1',
+             '1',
              '1'
             );

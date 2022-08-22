@@ -5,7 +5,7 @@ CREATE TABLE projects (
                        student_id VARCHAR ( 10 ) NOT NULL,
                        student_name VARCHAR ( 100 ) NOT NULL,
                        degree_title VARCHAR ( 100 ) NOT NULL,
-                       project_name VARCHAR ( 100 ) NOT NULL,
+                       project_name VARCHAR ( 100 ),
                        supervisor_1_name VARCHAR ( 100 ) NOT NULL,
                        supervisor_1_email VARCHAR ( 100 ),
                        supervisor_2_name VARCHAR ( 100 ),
@@ -15,5 +15,7 @@ CREATE TABLE projects (
                        group_project boolean,
                        ethics_review_check boolean,
                        ethics_review_text VARCHAR (500),
-                       cybersec_project boolean
+                       cybersec_project boolean,
+                       project_status VARCHAR ( 10 ),
+                       ethics_status VARCHAR ( 10 )
 );
