@@ -5,7 +5,7 @@ CREATE TABLE projects (
                        student_id VARCHAR ( 10 ) NOT NULL,
                        student_name VARCHAR ( 100 ) NOT NULL,
                        degree_title VARCHAR ( 100 ) NOT NULL,
-                       project_name VARCHAR ( 100 ) NOT NULL,
+                       project_name VARCHAR ( 100 ),
                        supervisor_1_name VARCHAR ( 100 ) NOT NULL,
                        supervisor_1_email VARCHAR ( 100 ),
                        supervisor_2_name VARCHAR ( 100 ),

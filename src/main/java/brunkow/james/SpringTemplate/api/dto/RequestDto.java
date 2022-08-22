@@ -18,10 +18,10 @@ public class RequestDto {
     @NotBlank(message = "degreeTitle not found")
     @JsonProperty("degree_title")
     private String degreeTitle;
-    @NotBlank(message = "projectName not found")
+    // @NotBlank(message = "projectName not found")
     @JsonProperty("project_name")
     private String projectName;
-    @NotBlank(message = "supervisor1Name not found")
+    // @NotBlank(message = "supervisor1Name not found")
     @JsonProperty("supervisor_1_name")
     private String supervisor1Name;
     // @NotBlank(message = "supervisor1Email not found")

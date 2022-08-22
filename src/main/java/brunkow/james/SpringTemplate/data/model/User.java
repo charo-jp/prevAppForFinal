@@ -18,9 +18,9 @@ public class User {
     public String studentName;
     @Column(nullable = false)
     public String degreeTitle;
-    @Column(nullable = false)
+    @Column
     public String projectName;
-    @Column(nullable = false, name = "supervisor_1_name")
+    @Column(name = "supervisor_1_name")
     public String supervisor1Name;
     @Column(name = "supervisor_1_email")
     @Email
