@@ -19,7 +19,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     public List<User>findByGroupProjectEquals(Boolean groupProject);
     public List<User>findByCybersecProjectEquals(Boolean cybersecProject);
     public List<User>findByethicsReviewCheckEquals(Boolean ethicsReviewCheck);
-
+    public List<User>findByProjectStatus(String projectStatus);
+    public List<User>findByEthicsStatus(String ethicsStats);
 
     }
 

@@ -15,5 +15,7 @@ CREATE TABLE projects (
                        group_project boolean,
                        ethics_review_check boolean,
                        ethics_review_text VARCHAR (500),
-                       cybersec_project boolean
+                       cybersec_project boolean,
+                       project_status VARCHAR ( 10 ),
+                       ethics_status VARCHAR ( 10 )
 );

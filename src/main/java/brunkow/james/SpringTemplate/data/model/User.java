@@ -42,6 +42,10 @@ public class User {
     public String ethicsReviewText;
     @Column
     public Boolean cybersecProject;
+    @Column
+    public String projectStatus;
+    @Column
+    public String ethicsStatus;
 
 
     public Long getInstanceId() {return instanceId;}
@@ -59,6 +63,8 @@ public class User {
     public Boolean getSpecialResourcesCheck() {return specialResourcesCheck;}
     public String getEthicsReviewText() {return ethicsReviewText;}
     public String getSpecialResourcesText() {return specialResourcesText;}
+    public String getProjectStatus() {return projectStatus;}
+    public String getEthicsStatus() {return ethicsStatus;}
 
     public void setInstanceId(Long instanceId) {this.instanceId = instanceId;}
     public void setStudentId(String studentId) {this.studentId = studentId;}
@@ -75,5 +81,7 @@ public class User {
     public void setEthicsReviewText(String ethicsReviewText) {this.ethicsReviewText = ethicsReviewText;}
     public void setSpecialResourcesCheck(Boolean specialResourcesCheck) {this.specialResourcesCheck = specialResourcesCheck;}
     public void setSpecialResourcesText(String specialResourcesText) {this.specialResourcesText = specialResourcesText;}
+    public void setProjectStatus(String projectStatus) {this.projectStatus = projectStatus;}
+    public void setEthicsStatus(String ethicsStatus) {this.ethicsStatus = ethicsStatus;}
 }
 

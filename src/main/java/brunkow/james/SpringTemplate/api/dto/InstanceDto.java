@@ -46,6 +46,10 @@ public class InstanceDto {
     // @NotNull(message = "cybersecProject quantifier not found")
     @JsonProperty("cybersec_project")
     private Boolean cybersecProject;
+    @JsonProperty("project_status")
+    private String projectStatus;
+    @JsonProperty("ethics_status")
+    private String ethicsStatus;
 
     public InstanceDto(){}
 // getters
@@ -64,6 +68,8 @@ public class InstanceDto {
     public Boolean getEthicsReviewCheck() {return ethicsReviewCheck;}
     public String getEthicsReviewText() {return ethicsReviewText;}
     public Boolean getCybersecProject() {return cybersecProject;}
+    public String getProjectStatus() {return projectStatus;}
+    public String getEthicsStatus() {return ethicsStatus;}
 // Setters
     public void setInstanceId(Long instanceId) {this.instanceId = instanceId;}
     public void setStudentId(String studentId) {this.studentId = studentId;}
@@ -80,6 +86,8 @@ public class InstanceDto {
     public void setEthicsReviewCheck(Boolean ethicsReviewCheck) {this.ethicsReviewCheck = ethicsReviewCheck;}
     public void setEthicsReviewText(String ethicsReviewText) {this.ethicsReviewText = ethicsReviewText;}
     public void setCybersecProject(Boolean cybersecProject) {this.cybersecProject = cybersecProject;}
+    public void setProjectStatus(String projectStatus) {this.projectStatus = projectStatus;}
+    public void setEthicsStatus(String ethicsStatus) {this.ethicsStatus = ethicsStatus;}
 // ToString
     @Override
     public String toString() {
@@ -99,6 +107,8 @@ public class InstanceDto {
                 ", ethicsReviewCheck=" + ethicsReviewCheck +
                 ", ethicsReviewText='" + ethicsReviewText + '\'' +
                 ", cybersecProject=" + cybersecProject +
+                ", projectStatus=" + projectStatus  +
+                ", ethicsStatus=" + ethicsStatus +
                 '}';
     }
 }

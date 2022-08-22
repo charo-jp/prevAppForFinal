@@ -47,6 +47,10 @@ public class RequestDto {
     // @NotNull(message = "cybersecProject quantifier not found")
     @JsonProperty("cybersec_project")
     private Boolean cybersecProject;
+    @JsonProperty("project_status")
+    private String projectStatus;
+    @JsonProperty("ethics_status")
+    private String ethicsStatus;
 
 
     public String getStudentId() {return studentId;}
@@ -63,6 +67,8 @@ public class RequestDto {
     public Boolean getEthicsReviewCheck() {return ethicsReviewCheck;}
     public String getEthicsReviewText() {return ethicsReviewText;}
     public Boolean getCybersecProject() {return cybersecProject;}
+    public String getProjectStatus() {return projectStatus;}
+    public String getEthicsStatus() {return ethicsStatus;}
 
     @Override
     public String toString() {
@@ -81,6 +87,8 @@ public class RequestDto {
                 ", ethicsReviewCheck=" + ethicsReviewCheck +
                 ", ethicsReviewText='" + ethicsReviewText + '\'' +
                 ", cybersecProject=" + cybersecProject +
+                ", projectStatus=" + projectStatus + 
+                ", ethicsStatus=" + ethicsStatus +
                 '}';
     }
 }

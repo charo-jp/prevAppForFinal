@@ -24,6 +24,9 @@ public class Mapper {
         instanceDto.setEthicsReviewCheck(user.getEthicsReviewCheck());
         instanceDto.setEthicsReviewText(user.getEthicsReviewText());
         instanceDto.setCybersecProject(user.getCybersecProject());
+        instanceDto.setProjectStatus(user.getProjectStatus());
+        instanceDto.setEthicsStatus(user.getEthicsStatus());
+
         return instanceDto;
 
     }
@@ -43,6 +46,9 @@ public class Mapper {
         user.setEthicsReviewCheck(requestDto.getEthicsReviewCheck());
         user.setEthicsReviewText(requestDto.getEthicsReviewText());
         user.setCybersecProject(requestDto.getCybersecProject());
+        user.setProjectStatus(requestDto.getProjectStatus());
+        user.setEthicsStatus(requestDto.getEthicsStatus());
+
         return user;
     }
 }

@@ -39,6 +39,9 @@ async function sendJSON(){
     var cybersecProjectPreNull = document.getElementById("cybersecProject").value;
     var groupProject = 0;
 
+    var ethicsStatus = "1";
+    var projectStatus = "1";
+
     if (ethicsReviewCheckPreNull = 'on'){
        var ethicsReviewCheck = false
     } else {
@@ -71,7 +74,9 @@ async function sendJSON(){
         "ethics_review_text":ethicsReviewText,
         "ethics_review_check":ethicsReviewCheck,
         "cybersec_project":cybersecProject,
-        "group_project":groupProject
+        "group_project":groupProject,
+        "project_status":projectStatus,    //1 for in progress, 2 for accepted, 3 for rejected
+        "ethics_status":ethicsStatus      //1 for awaiting review, 2 for accepted, 3 for rejected
     };
     
     fetch('http://localhost:8080/registerUser', {
