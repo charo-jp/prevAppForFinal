@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: springapp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: springapp
+    spec:
+      containers:
+        - name: springapp
+          image: git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager:latest_RegForm_backend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: org.postgresql.driver
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://example:5432/postgres?currentSchema=example_schema&ssl=false
+            - name: SPRING_DATASOURCE_USERNAME
+              value: appuser
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: app-database-pwd
+                  name: DBPwd
