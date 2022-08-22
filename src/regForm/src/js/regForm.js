@@ -39,8 +39,8 @@ async function sendJSON(){
     var cybersecProjectPreNull = document.getElementById("cybersecProject").value;
     var groupProject = 0;
 
-    var ethicsStatus = "1";
-    var projectStatus = "1";
+    var ethicsStatus = "0";
+    var projectStatus = "0";
 
     if (ethicsReviewCheckPreNull = 'on'){
        var ethicsReviewCheck = false

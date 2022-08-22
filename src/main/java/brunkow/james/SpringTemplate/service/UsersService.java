@@ -30,14 +30,14 @@ public class UsersService {
         User user = mapper.mapCreateUserRequestToUser(requestDto);
 
 // Check to see if Student name and ID already exist in database. If so, return warning string
-        if (!userRepository.findByStudentNameIgnoreCase(requestDto.getStudentName()).isEmpty()) {
-            LOGGER.warn("Tried to register user with Student Name " + requestDto.getStudentName() + " however Student already exists");
-            return new ResponseDto(CreateProjectRequestResponseEnum.STUDENTNAME_ALREADY_EXISTS.getResponse());
-        }
-        if (!userRepository.findByStudentIdIgnoreCase(requestDto.getStudentId()).isEmpty()) {
-            LOGGER.warn("Tried to register user with Student ID " + requestDto.getStudentId() + " however this Student ID already exists");
-            return new ResponseDto(CreateProjectRequestResponseEnum.STUDENTID_ALREADY_EXISTS.getResponse());
-        }
+        // if (!userRepository.findByStudentNameIgnoreCase(requestDto.getStudentName()).isEmpty()) {
+        //     LOGGER.warn("Tried to register user with Student Name " + requestDto.getStudentName() + " however Student already exists");
+        //     return new ResponseDto(CreateProjectRequestResponseEnum.STUDENTNAME_ALREADY_EXISTS.getResponse());
+        // }
+        // if (!userRepository.findByStudentIdIgnoreCase(requestDto.getStudentId()).isEmpty()) {
+        //     LOGGER.warn("Tried to register user with Student ID " + requestDto.getStudentId() + " however this Student ID already exists");
+        //     return new ResponseDto(CreateProjectRequestResponseEnum.STUDENTID_ALREADY_EXISTS.getResponse());
+        // }
 // Save new entry to DB
         try {
             userRepository.save(user);
