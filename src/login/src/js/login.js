@@ -22,7 +22,11 @@ async function getLogin() {
         }
     }
     
-    
+    if(login == 'cemsugandpgt@kent.ac.uk') {
+        window.location.href = "http://localhost:8083";
+    }
+
+
     // if login exist then take them to register project url
     if(loginArr.length >= 1 ){//if student login array is not empty
         window.location.href = "http://localhost:8081"; //remove later
