@@ -289,17 +289,14 @@ async function sendJSON(){
     }
 
   async function getName() {
-    let repName = $('#nameReport').val();
     let url = 'http://localhost:8080/getusers';
     let response = await fetch(url);
-    let searchType = document.getElementById("searchType").value;
     var data = await response.json();
     jsonArray = [];
-    var x = searchArray[searchType];
 
 
     for( i =0; i < data.length; i++) {
-      if(loginCookieToObj.login == data[i].supervisor_1_email) {
+      if(loginCookieToObj.login == data[i].supervisor_1_email || loginCookieToObj.login == data[i].supervisor_1_name) {
           jsonArray.push(data[i]);
       }
     }
@@ -334,7 +331,7 @@ async function sendJSON(){
     
     //Hide element and use to download file automatically
     link.style = "visibility:hidden";
-    link.download = repName + ".csv";
+    link.download = loginCookieToObj.login + ".csv";
     
     //Remove element after downloading the file
     document.body.appendChild(link);
