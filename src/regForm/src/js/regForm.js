@@ -49,17 +49,20 @@ async function getUser() {
     loginName = [];
     studentLoginId = [];
     supervisor1EmailLogin = [];
-
+    var studentCheck = 1;
     for( i = 0; i < data.length; i++) {
         //if requested login is the same as the cookie login
         if(loginCookieToObj.login == data[i].student_id) {
             logingArray.push(data[i].student_id);
             loginName.push(data[i].student_name);
             studentLoginId.push(data[i].student_id);
-        }else if(loginCookieToObj.login == data[i].supervisor_1_email ) {
+            studentCheck = 2;
+        }else if(loginCookieToObj.login == data[i].supervisor_1_email || loginCookieToObj.login == data[i].supervisor_1_name) {
             logingArray.push(data[i].supervisor_1_email);
             loginName.push(data[i].supervisor_1_name);
-        }else {
+            studentCheck = 3;
+        }
+        else{
             console.log('User does not exist');
         }
     }
@@ -67,7 +70,7 @@ async function getUser() {
     //storing student registered to project of supervisor
     studentRegisteredArr = [];
     for( i = 0; i < data.length; i++) {
-        if(loginCookieToObj.login == data[i].supervisor_1_email ) {
+        if(loginCookieToObj.login == data[i].supervisor_1_email || loginCookieToObj.login == data[i].supervisor_1_name) {
             studentRegisteredObj = {
                 registeredStudentName: data[i].student_name,
                 registeredStudentLogin: data[i].student_id,
@@ -91,22 +94,20 @@ async function getUser() {
     }
 
     const dataLogin = logingArray[0];
-    if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
+    // if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
+      if(studentCheck==2){
         //handling elements not for students
-        $('#fileUpload').css('display', 'none');
-        $('#excelButton').css('display', 'none');
-        $('#RegisteredStudents').css('display', 'none');
+        $('#file_upload').hide();
+        $('#excel_upload').hide();
+        $('#RegisteredStudents').hide();
+        $('#generate_report').hide();
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
         welcomeMessage.textContent += ' ' + loginName[0] + '{student}';
-    } else if(logingArray.length >= 1 && logingArray[0] == dataLogin) {
-        
+    // } else if(logingArray.length >= 1 && logingArray[0] == dataLogin) {
+       } else if(studentCheck==3){
         //handling elements for supervisor
-        $('.form-group').css('display', 'none');
-        $('#tickText').css('display', 'none');
-        $('#submitForm').css('display', 'none');
-        $('#fileUpload').css('display', 'none');
-        $('#excelButton').css('display', 'none');
+        $('#project_registration').hide();
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
         welcomeMessage.textContent += ' ' + loginName[0];
@@ -294,12 +295,11 @@ async function sendJSON(){
     let searchType = document.getElementById("searchType").value;
     var data = await response.json();
     jsonArray = [];
-    const searchArray = ["student_name", "supervisor_1_name", "student_id", "project_name", "degree_title"];
     var x = searchArray[searchType];
 
 
     for( i =0; i < data.length; i++) {
-      if(repName == data[i][x]) {
+      if(loginCookieToObj.login == data[i].supervisor_1_email) {
           jsonArray.push(data[i]);
       }
     }
