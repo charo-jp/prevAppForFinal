@@ -19,6 +19,8 @@ async function getLogin() {
             loginArr.push(data[i].student_id);
         }else if(login == data[i].supervisor_1_email) {//add supervisor email to arry
             loginArr.push(data[i].supervisor_1_email); 
+        }else if(login == data[i].supervisor_1_name) {
+            loginArr.push(data[i].supervisor_1_name);
         }
     }
     
