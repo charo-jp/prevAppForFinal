@@ -21,9 +21,9 @@ $('#ethicsReviewCheck').click(function() {
 
 });
 
-//************ */
-//******Permission control****** */
-//************ */
+//********************
+//*Permission control
+//********************
 
   //getting id student loged in with from cookie
   var loginCookieToObj = document.cookie.split(';')
@@ -117,9 +117,9 @@ async function getUser() {
 
 
 
-//********** */
-//*****END of Persmission Control***** */
-//********** */
+//****************************
+//*END of Persmission Control
+//****************************
 
 
 async function sendJSON(){
