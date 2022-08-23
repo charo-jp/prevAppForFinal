@@ -133,9 +133,20 @@ async function getUser() {
         $('#excel_upload').hide();
         $('#RegisteredStudents').hide();
         $('#generate_report').hide();
+        //handling registered student
+        if (registeredProject.length >=1 ) {
+            $('.form-group').hide();
+            $('#tickText').hide();
+            $('#submitForm').hide();
+            $('#registeredMessage').show();
+            let registeredMessage = ' ' + registeredProject[0] + ' ' + 'your supervisor is ' + projectSupervisor[0] ;
+            console.log(registeredMessage);
+            let registeredMessageElement = document.getElementById('registeredMessage');
+            registeredMessageElement.textContent += registeredMessage
+        }
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
-        welcomeMessage.textContent += ' ' + loginName[0] + '{student}';
+        welcomeMessage.textContent += ' ' + loginName[0] + ' { student }';
     // } else if(logingArray.length >= 1 && logingArray[0] == dataLogin) {
        } else if(studentCheck==3){
         //handling elements for supervisor
