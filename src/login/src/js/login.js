@@ -19,10 +19,16 @@ async function getLogin() {
             loginArr.push(data[i].student_id);
         }else if(login == data[i].supervisor_1_email) {//add supervisor email to arry
             loginArr.push(data[i].supervisor_1_email); 
+        }else if(login == data[i].supervisor_1_name) {
+            loginArr.push(data[i].supervisor_1_name);
         }
     }
     
-    
+    if(login == 'cemsugandpgt@kent.ac.uk') {
+        window.location.href = "http://localhost:8083";
+    }
+
+
     // if login exist then take them to register project url
     if(loginArr.length >= 1 ){//if student login array is not empty
         window.location.href = "http://localhost:8081"; //remove later
