@@ -93,6 +93,34 @@ async function getUser() {
         $('#registeredStudentsList').append(createLiElement);
     }
 
+
+    //********************
+    //*Registered Student
+    //********************
+    console.log(data[i].project_name.length);
+    // Storing the data we want to show if they are registered
+    registeredProject = [];
+    projectSupervisor = [];
+    console.log(studentLoginId);
+    for( i = 0; i < data.length; i++) {
+        //if student is registered
+        if(((data[i].project_name.length >=1) && (loginCookieToObj.login == data[i].student_id))) {
+            console.log('registered');
+            registeredProject.push(data[i].project_name);
+            projectSupervisor.push(data[i].supervisor_1_name);
+            // console.log(data[i].project_name);
+        } else if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)) {
+            console.log('not registered');
+        }
+    }
+    console.log(registeredProject);
+    console.log(projectSupervisor);
+
+    //***************************
+    //*End of Registered Student
+    //***************************
+
+
     const dataLogin = logingArray[0];
     // if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
       if(studentCheck==2){
