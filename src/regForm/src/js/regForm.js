@@ -116,6 +116,10 @@ async function getUser() {
     console.log(registeredProject);
     console.log(projectSupervisor);
 
+    // *** TO DO***
+    // Hide form if Registered project length is >=1
+    // and show a message of what project they registered for and the supervisor
+
     //***************************
     //*End of Registered Student
     //***************************
