@@ -127,6 +127,9 @@ async function getUser() {
 
     const dataLogin = logingArray[0];
     // if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
+      if(registeredProject.length == 0 ) {
+        $('#registeredMessage').hide();
+    }
       if(studentCheck==2){
         //handling elements not for students
         $('#file_upload').hide();
