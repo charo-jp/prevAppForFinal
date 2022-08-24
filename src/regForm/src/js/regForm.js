@@ -21,9 +21,9 @@ $('#ethicsReviewCheck').click(function() {
 
 });
 
-//************ */
-//******Permission control****** */
-//************ */
+//********************
+//*Permission control
+//********************
 
   //getting id student loged in with from cookie
   var loginCookieToObj = document.cookie.split(';')
@@ -93,17 +93,56 @@ async function getUser() {
         $('#registeredStudentsList').append(createLiElement);
     }
 
+
+    //********************
+    //*Registered Student
+    //********************
+    console.log(data[i].project_name.length);
+    // Storing the data we want to show if they are registered
+    registeredProject = [];
+    projectSupervisor = [];
+    console.log(studentLoginId);
+    for( i = 0; i < data.length; i++) {
+        //if student is registered
+        if(((data[i].project_name.length >=1) && (loginCookieToObj.login == data[i].student_id))) {
+            console.log('registered');
+            registeredProject.push(data[i].project_name);
+            projectSupervisor.push(data[i].supervisor_1_name);
+        } else if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)) {
+            console.log('not registered');
+        }
+    }
+
+    //***************************
+    //*End of Registered Student
+    //***************************
+
+
     const dataLogin = logingArray[0];
     // if(logingArray.length >= 1 && studentLoginId[0] == dataLogin){
+      if(registeredProject.length == 0 ) {
+        $('#registeredMessage').hide();
+    }
       if(studentCheck==2){
         //handling elements not for students
         $('#file_upload').hide();
         $('#excel_upload').hide();
         $('#RegisteredStudents').hide();
         $('#generate_report').hide();
+        //handling registered student
+        if (registeredProject.length >=1 ) {
+            $('.form-group').hide();
+            $('#tickText').hide();
+            $('#submitForm').hide();
+            $('#registeredMessage').show();
+            let registeredMessage = ' ' + registeredProject[0] + ' ' + 'your supervisor is ' + projectSupervisor[0] ;
+            console.log(registeredMessage);
+            let registeredMessageElement = document.getElementById('registeredMessage');
+            registeredMessageElement.textContent += registeredMessage
+        }
         //welcome message
         let welcomeMessage = document.getElementById('welcomeMessage');
-        welcomeMessage.textContent += ' ' + loginName[0] + '{student}';
+        welcomeMessage.textContent += ' ' + loginName[0] + ' { student }';
     // } else if(logingArray.length >= 1 && logingArray[0] == dataLogin) {
        } else if(studentCheck==3){
         //handling elements for supervisor
@@ -117,9 +156,9 @@ async function getUser() {
 
 
 
-//********** */
-//*****END of Persmission Control***** */
-//********** */
+//****************************
+//*END of Persmission Control
+//****************************
 
 
 async function sendJSON(){
