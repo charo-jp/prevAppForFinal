@@ -7,6 +7,7 @@ variables:
 stages:          # List of stages for jobs, and their order of execution
   - build
   - build
+  - build
 # - deploy
 
 docker:backend:
@@ -34,7 +35,7 @@ docker:frontend:
     - docker push $CI_REGISTRY_IMAGE:latest_RegForm_frontend
 
 
-docker:frontend:
+docker:login:
   stage: build
   image: docker
   services:
