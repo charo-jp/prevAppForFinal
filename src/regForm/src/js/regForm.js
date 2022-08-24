@@ -108,17 +108,10 @@ async function getUser() {
             console.log('registered');
             registeredProject.push(data[i].project_name);
             projectSupervisor.push(data[i].supervisor_1_name);
-            // console.log(data[i].project_name);
         } else if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)) {
             console.log('not registered');
         }
     }
-    console.log(registeredProject);
-    console.log(projectSupervisor);
-
-    // *** TO DO***
-    // Hide form if Registered project length is >=1
-    // and show a message of what project they registered for and the supervisor
 
     //***************************
     //*End of Registered Student
