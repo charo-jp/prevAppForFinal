@@ -108,14 +108,27 @@ async function getUser() {
             console.log('registered');
             registeredProject.push(data[i].project_name);
             projectSupervisor.push(data[i].supervisor_1_name);
-        } else if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)) {
-            console.log('not registered');
-        }
+        } //else if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)) {
+        //     console.log('not registered');
+        // }
     }
 
     //***************************
     //*End of Registered Student
     //***************************
+      
+    //********************
+    //* UnRegistered Student
+    //********************
+    for( i = 0; i < data.length; i++) {
+      if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)){
+        console.log('unregistered');
+      }
+    }
+    //***************************
+    //*End of UnRegistered Student
+    //***************************
+
 
 
     const dataLogin = logingArray[0];
