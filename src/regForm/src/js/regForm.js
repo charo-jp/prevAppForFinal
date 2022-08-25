@@ -123,6 +123,10 @@ async function getUser() {
     for( i = 0; i < data.length; i++) {
       if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)){
         console.log('unregistered');
+        $('#nameInput').val(data[i].student_name);
+        $('#loginInput').val(data[i].student_id);
+        //for project name, if  data projectname contains vale of dropdown list
+        // then select that one
       }
     }
     //***************************
