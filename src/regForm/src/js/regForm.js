@@ -117,9 +117,9 @@ async function getUser() {
     //*End of Registered Student
     //***************************
       
-    //********************
-    //* UnRegistered Student
-    //********************
+    //*************************************
+    //* UnRegistered Student AutoFill Form
+    //*************************************
     for( i = 0; i < data.length; i++) {
       if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)){
         console.log('unregistered');
@@ -127,11 +127,24 @@ async function getUser() {
         $('#loginInput').val(data[i].student_id);
         //for project name, if  data projectname contains vale of dropdown list
         // then select that one
+        let option3 = 'Computer Science Conversion'
+        let option4 = 'Cyber Security - MSc'
+        
+        if (option3.includes(data[i].project_name)) {
+          console.log('Project');
+          $('#courseTitle').val('3');
+        }
+        if (option4.includes(data[i].project_name)) {
+          console.log('Project');
+          $('#courseTitle').val('4');
+        }
+        
+        
       }
     }
-    //***************************
-    //*End of UnRegistered Student
-    //***************************
+    //********************************************
+    //*End of UnRegistered Student AutoFill Form
+    //*********************************************
 
 
 
