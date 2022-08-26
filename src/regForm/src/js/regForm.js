@@ -124,10 +124,9 @@ async function getUser() {
     for( i = 0; i < data.length; i++) {
       if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)){
         console.log('unregistered');
-        $('#nameInput').val(data[i].student_name);
-        $('#loginInput').val(data[i].student_id);
-        //for Degree tittle, if  data degree title contains vale of dropdown list
-        // then select that one
+        $('#nameInput').val(data[i].student_name); //auto fills student name
+        $('#loginInput').val(data[i].student_id); //auto fills student login
+        
         let degreeTitleSelect = [
           'Advanced Computer Science - MSc',
           'Computer Science - MSc',
@@ -136,19 +135,19 @@ async function getUser() {
           'Artificial Intelligence - MSc',
           'Computer Science (Artificial Intelligence) - MSc',
           'Networks and Security - MSc',
-        ]
-        //testing
+        ];
+
+        //for Degree tittle, if  data degree title contains vale of dropdown list
+        // then select that one
          for (i = 0; i < degreeTitleSelect.length; i++) {
           let studentDegreeTitle = studentDegreeTitleArr[0];
           let isDegree = degreeTitleSelect[i].includes(studentDegreeTitle);
-          //if degree title matches auto select the corresponding value
+          //auto selects degree title if degree title matches auto select the corresponding value
           if (isDegree) {
             $('#courseTitle').val(i + 1);
             console.log(i);
           }
          }
-        
-        
       }
     }
     //********************************************
