@@ -147,30 +147,6 @@ async function getUser() {
             console.log(i);
           }
          }
-
-        // for (i = 0; i < degreeTitleSelect.length; i++) {
-        //   let titleSelect = degreeTitleSelect[i];
-        //   let degreeSelectName = data[i].degree_title;
-        //   console.log(titleSelect);
-        //   console.log(degreeSelectName);
-        //   if (titleSelect.includes(data[i].degree_title)) {
-        //       console.log('matches')
-        //       $('#courseTitle').val(i);
-        //   }
-          // else if (!titleSelect.includes(data[i].project_name)) {
-          //   $('#courseTitle').val(i);
-          // }
-        // }
-        // let option4 = 'Cyber Security - MSc'
-        
-        // if (option3.includes(data[i].project_name)) {
-        //   console.log('Project');
-        //   $('#courseTitle').val('3');
-        // }
-        // if (option4.includes(data[i].project_name)) {
-        //   console.log('Project');
-        //   $('#courseTitle').val('4');
-        // }
         
         
       }
