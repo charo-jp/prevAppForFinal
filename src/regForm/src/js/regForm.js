@@ -49,6 +49,7 @@ async function getUser() {
     loginName = [];
     studentLoginId = [];
     supervisor1EmailLogin = [];
+    studentDegreeTitleArr = [];
     var studentCheck = 1;
     for( i = 0; i < data.length; i++) {
         //if requested login is the same as the cookie login
@@ -56,6 +57,7 @@ async function getUser() {
             logingArray.push(data[i].student_id);
             loginName.push(data[i].student_name);
             studentLoginId.push(data[i].student_id);
+            studentDegreeTitleArr.push(data[i].degree_title);
             studentCheck = 2;
         }else if(loginCookieToObj.login == data[i].supervisor_1_email || loginCookieToObj.login == data[i].supervisor_1_name) {
             logingArray.push(data[i].supervisor_1_email);
@@ -66,7 +68,6 @@ async function getUser() {
             console.log('User does not exist');
         }
     }
-
     //storing student registered to project of supervisor
     studentRegisteredArr = [];
     for( i = 0; i < data.length; i++) {
@@ -125,19 +126,51 @@ async function getUser() {
         console.log('unregistered');
         $('#nameInput').val(data[i].student_name);
         $('#loginInput').val(data[i].student_id);
-        //for project name, if  data projectname contains vale of dropdown list
+        //for Degree tittle, if  data degree title contains vale of dropdown list
         // then select that one
-        let option3 = 'Computer Science Conversion'
-        let option4 = 'Cyber Security - MSc'
+        let degreeTitleSelect = [
+          'Advanced Computer Science - MSc',
+          'Computer Science - MSc',
+          'Computer Science Conversion MSc',
+          'Cyber Security - MSc',
+          'Artificial Intelligence - MSc',
+          'Computer Science (Artificial Intelligence) - MSc',
+          'Networks and Security - MSc',
+        ]
+        //testing
+         for (i = 0; i < degreeTitleSelect.length; i++) {
+          let studentDegreeTitle = studentDegreeTitleArr[0];
+          let isDegree = degreeTitleSelect[i].includes(studentDegreeTitle);
+          //if degree title matches auto select the corresponding value
+          if (isDegree) {
+            $('#courseTitle').val(i + 1);
+            console.log(i);
+          }
+         }
+
+        // for (i = 0; i < degreeTitleSelect.length; i++) {
+        //   let titleSelect = degreeTitleSelect[i];
+        //   let degreeSelectName = data[i].degree_title;
+        //   console.log(titleSelect);
+        //   console.log(degreeSelectName);
+        //   if (titleSelect.includes(data[i].degree_title)) {
+        //       console.log('matches')
+        //       $('#courseTitle').val(i);
+        //   }
+          // else if (!titleSelect.includes(data[i].project_name)) {
+          //   $('#courseTitle').val(i);
+          // }
+        // }
+        // let option4 = 'Cyber Security - MSc'
         
-        if (option3.includes(data[i].project_name)) {
-          console.log('Project');
-          $('#courseTitle').val('3');
-        }
-        if (option4.includes(data[i].project_name)) {
-          console.log('Project');
-          $('#courseTitle').val('4');
-        }
+        // if (option3.includes(data[i].project_name)) {
+        //   console.log('Project');
+        //   $('#courseTitle').val('3');
+        // }
+        // if (option4.includes(data[i].project_name)) {
+        //   console.log('Project');
+        //   $('#courseTitle').val('4');
+        // }
         
         
       }
