@@ -7,6 +7,7 @@ variables:
 stages:          # List of stages for jobs, and their order of execution
   - build
   - build
+  - build
 # - deploy
 
 docker:backend:
@@ -32,6 +33,31 @@ docker:frontend:
     - docker tag $CI_REGISTRY_IMAGE:latest_RegForm_frontend $CI_REGISTRY_IMAGE:latest_RegForm_frontend
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker push $CI_REGISTRY_IMAGE:latest_RegForm_frontend
+
+
+docker:login:
+  stage: build
+  image: docker
+  services:
+    - docker:dind
+  script:
+    - docker version
+    - docker build -f src/login/Dockerfile -t $CI_REGISTRY_IMAGE:latest_login_frontend .
+    - docker tag $CI_REGISTRY_IMAGE:latest_login_frontend $CI_REGISTRY_IMAGE:latest_login_frontend
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE:latest_login_frontend
+
+docker:psPage:
+  stage: build
+  image: docker
+  services:
+    - docker:dind
+  script:
+    - docker version
+    - docker build -f src/login/Dockerfile -t $CI_REGISTRY_IMAGE:latest_psPage_frontend .
+    - docker tag $CI_REGISTRY_IMAGE:latest_psPage_frontend $CI_REGISTRY_IMAGE:latest_psPage_frontend
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE:latest_psPage_frontend
 
 
 #deploy:
