@@ -121,22 +121,21 @@ async function getUser() {
     //*************************************
     //* UnRegistered Student AutoFill Form
     //*************************************
+    let degreeTitleSelect = [
+      'Advanced Computer Science - MSc',
+      'Computer Science - MSc',
+      'Computer Science Conversion MSc',
+      'Cyber Security - MSc',
+      'Artificial Intelligence - MSc',
+      'Computer Science (Artificial Intelligence) - MSc',
+      'Networks and Security - MSc',
+    ];
     for( i = 0; i < data.length; i++) {
       if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)){
         console.log('unregistered');
         $('#nameInput').val(data[i].student_name); //auto fills student name
         $('#loginInput').val(data[i].student_id); //auto fills student login
         
-        let degreeTitleSelect = [
-          'Advanced Computer Science - MSc',
-          'Computer Science - MSc',
-          'Computer Science Conversion MSc',
-          'Cyber Security - MSc',
-          'Artificial Intelligence - MSc',
-          'Computer Science (Artificial Intelligence) - MSc',
-          'Networks and Security - MSc',
-        ];
-
         //for Degree tittle, if  data degree title contains vale of dropdown list
         // then select that one
          for (i = 0; i < degreeTitleSelect.length; i++) {
