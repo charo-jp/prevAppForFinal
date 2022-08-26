@@ -118,9 +118,15 @@ async function getUser() {
     //*End of Registered Student
     //***************************
       
+
+
+
+
+
     //*************************************
     //* UnRegistered Student AutoFill Form
     //*************************************
+
     let degreeTitleSelect = [
       'Advanced Computer Science - MSc',
       'Computer Science - MSc',
@@ -130,9 +136,9 @@ async function getUser() {
       'Computer Science (Artificial Intelligence) - MSc',
       'Networks and Security - MSc',
     ];
+
     for( i = 0; i < data.length; i++) {
       if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)){
-        console.log('unregistered');
         $('#nameInput').val(data[i].student_name); //auto fills student name
         $('#loginInput').val(data[i].student_id); //auto fills student login
         
@@ -144,11 +150,11 @@ async function getUser() {
           //auto selects degree title if degree title matches auto select the corresponding value
           if (isDegree) {
             $('#courseTitle').val(i + 1);
-            console.log(i);
           }
          }
       }
     }
+    
     //********************************************
     //*End of UnRegistered Student AutoFill Form
     //*********************************************
