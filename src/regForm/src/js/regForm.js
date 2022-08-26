@@ -49,6 +49,7 @@ async function getUser() {
     loginName = [];
     studentLoginId = [];
     supervisor1EmailLogin = [];
+    studentDegreeTitleArr = [];
     var studentCheck = 1;
     for( i = 0; i < data.length; i++) {
         //if requested login is the same as the cookie login
@@ -56,6 +57,7 @@ async function getUser() {
             logingArray.push(data[i].student_id);
             loginName.push(data[i].student_name);
             studentLoginId.push(data[i].student_id);
+            studentDegreeTitleArr.push(data[i].degree_title);
             studentCheck = 2;
         }else if(loginCookieToObj.login == data[i].supervisor_1_email || loginCookieToObj.login == data[i].supervisor_1_name) {
             logingArray.push(data[i].supervisor_1_email);
@@ -66,7 +68,6 @@ async function getUser() {
             console.log('User does not exist');
         }
     }
-
     //storing student registered to project of supervisor
     studentRegisteredArr = [];
     for( i = 0; i < data.length; i++) {
@@ -108,14 +109,56 @@ async function getUser() {
             console.log('registered');
             registeredProject.push(data[i].project_name);
             projectSupervisor.push(data[i].supervisor_1_name);
-        } else if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)) {
-            console.log('not registered');
-        }
+        } //else if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)) {
+        //     console.log('not registered');
+        // }
     }
 
     //***************************
     //*End of Registered Student
     //***************************
+      
+
+
+
+
+
+    //*************************************
+    //* UnRegistered Student AutoFill Form
+    //*************************************
+
+    let degreeTitleSelect = [
+      'Advanced Computer Science - MSc',
+      'Computer Science - MSc',
+      'Computer Science Conversion MSc',
+      'Cyber Security - MSc',
+      'Artificial Intelligence - MSc',
+      'Computer Science (Artificial Intelligence) - MSc',
+      'Networks and Security - MSc',
+    ];
+
+    for( i = 0; i < data.length; i++) {
+      if((data[i].project_name.length == 0) && (loginCookieToObj.login == data[i].student_id)){
+        $('#nameInput').val(data[i].student_name); //auto fills student name
+        $('#loginInput').val(data[i].student_id); //auto fills student login
+        
+        //for Degree tittle, if  data degree title contains vale of dropdown list
+        // then select that one
+         for (i = 0; i < degreeTitleSelect.length; i++) {
+          let studentDegreeTitle = studentDegreeTitleArr[0];
+          let isDegree = degreeTitleSelect[i].includes(studentDegreeTitle);
+          //auto selects degree title if degree title matches auto select the corresponding value
+          if (isDegree) {
+            $('#courseTitle').val(i + 1);
+          }
+         }
+      }
+    }
+    
+    //********************************************
+    //*End of UnRegistered Student AutoFill Form
+    //*********************************************
+
 
 
     const dataLogin = logingArray[0];
