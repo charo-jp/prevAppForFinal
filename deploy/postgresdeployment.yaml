@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+spec:
+  volumeName: postgres-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: ""
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv
+  labels:
+    type: local
+spec:
+  storageClassName: ""
+  claimRef:
+    name: postgres-pvc
+    namespace: default
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/volume"
+---
+apiVersion: v1
+data:
+  password: YXBwdGVzdDEyMwo=
+kind: Secret
+metadata:
+  labels:
+    run: postgres
+  name: postgres-secrets
+type: Opaque
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  ports:
+    - port: 5432
+      protocol: TCP
+      targetPort: 5432
+      name: pgsql
+  selector:
+    run: postgres
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: postgres
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: postgres
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        run: postgres
+    spec:
+      containers:
+        - env:
+            - name: POSTGRES_DB
+              value: example
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: postgres-secrets
+                  optional: false
+            - name: POSTGRES_USER
+              value: appuser
+          image: postgres:12.3-alpine
+          imagePullPolicy: IfNotPresent
+          name: postgres
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: postgres-pvc
