@@ -36,7 +36,7 @@ $('#ethicsReviewCheck').click(function() {
 async function getUser() {
     let login = $('#loginInput').val();
     let url = 'http://129.12.44.231:80/getusers';
-    let port = 8081; // attempt to specify so k8s can connect it to reverse proxy
+    // let port = 8081; // attempt to specify so k8s can connect it to reverse proxy
 
     try {
         let response = await fetch(url);
