@@ -30,7 +30,11 @@ To generate a build of the application using the Gradle wrapper, run:
 
 To spin up 2 local containers for the database and web applications, run: 
 
-`docker-compose build --no-cache` 
+`docker login git.cs.kent.ac.uk:5050` to login to gitlab
+
+Then run
+
+`docker build -t git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager .` to build the image
 
 Then run
 
