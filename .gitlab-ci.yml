@@ -8,6 +8,8 @@ stages:          # List of stages for jobs, and their order of execution
   - build
   - build
   - build
+  - build
+  - build
 # - deploy
 
 docker:backend:
