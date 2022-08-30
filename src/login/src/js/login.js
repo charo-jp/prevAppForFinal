@@ -10,6 +10,21 @@ async function getLogin() {
         console.log(error);
     }
 
+
+    studentData = [
+        {instance_id: null, student_id: 'aa111', student_name: 'Adam', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'bb222', student_name: 'Brandon', degree_title: 'MSc Computer Science'},
+        {instance_id: null, student_id: 'cc333', student_name: 'Charlie', degree_title: 'MSc Cyber Security'} 
+                ];
+    for( i =0; i < data.length; i++) {
+        studentData.push(data[i]);
+    }
+    console.log(studentData);
+
+    supervisorData = [
+        {supervisor_1_email: 'dd444@kent.ac.uk', supervisor_1_name: 'Darren'},
+        {supervisor_1_email: 'ee555@kent.ac.uk', supervisor_1_name: 'Eric'}
+    ]
     //loop through array of object from response, if student id matches with login
     //then add that login to an array.
     loginArr = [];
@@ -27,6 +42,7 @@ async function getLogin() {
     if(login == 'cemsugandpgt@kent.ac.uk') {
         window.location.href = "http://localhost:8083";
     }
+
 
 
     // if login exist then take them to register project url

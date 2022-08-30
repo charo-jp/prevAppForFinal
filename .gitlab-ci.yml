@@ -8,7 +8,8 @@ stages:          # List of stages for jobs, and their order of execution
   - build
   - build
   - build
-  - build 
+  - build
+  - build
 # - deploy
 
 docker:backend:
@@ -59,6 +60,18 @@ docker:psPage:
     - docker tag $CI_REGISTRY_IMAGE:latest_psPage_frontend $CI_REGISTRY_IMAGE:latest_psPage_frontend
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker push $CI_REGISTRY_IMAGE:latest_psPage_frontend
+
+docker:excelReader:
+  stage: build
+  image: docker
+  services:
+    - docker:dind
+  script:
+    - docker version
+    - docker build -f src/login/Dockerfile -t $CI_REGISTRY_IMAGE:latest_psPage_excelReader .
+    - docker tag $CI_REGISTRY_IMAGE:latest_psPage_excelReader $CI_REGISTRY_IMAGE:latest_psPage_excelReader
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker push $CI_REGISTRY_IMAGE:latest_psPage_excelReader
 
 
 #deploy:
