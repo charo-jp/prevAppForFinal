@@ -1,9 +1,13 @@
 [[_TOC_]]
 # Kubernetes Deployment
 
-Still a work in progress, however this [URL](129.12.44.231:80/getusers) will run a get request on the DB and return the default values initially spawned with the deployment.
+Still a work in progress, however entering the below URL will run a get request on the DB and return the default values initially spawned with the deployment.
+
+http://129.12.44.231:80/getusers/
 
 This can be added to by running postman requests with the correct JSON format
+
+In the event this doesn't work, the minikube tunnel may be down
 
 ## Prerequisites
 
