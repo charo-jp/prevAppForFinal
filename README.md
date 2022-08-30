@@ -1,4 +1,9 @@
 [[_TOC_]]
+# Kubernetes Deployment
+
+Still a work in progress, however this [URL](129.12.44.231:80/getusers) will run a get request on the DB and return the default values initially spawned with the deployment.
+
+This can be added to by running postman requests with the correct JSON format
 
 ## Prerequisites
 
@@ -68,18 +73,3 @@ To test the api (mac/linux only):
 ### Uploading excel
 Use provided excel file to upload.
 If using other excel files, headers in excel must be changed to match variable names of the database
-
-student_id
-student_name   
-degree_title
-project_name
-supervisor_1_name
-supervisor_1_email
-supervisor_2_name
-supervisor_2_email
-special_resources_check
-special_resources_text
-ethics_review_text
-ethics_review_check
-cybersec_project
-group_project

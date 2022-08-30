@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springapp
+  labels:
+    run: springapp
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    run: springapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springapp
+spec:
+  selector:
+    matchLabels:
+      run: springapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: springapp
+    spec:
+      containers:
+        - name: springapp
+          image: git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager:latest_RegForm_backend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+              name: http
+          env:
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: org.postgresql.Driver
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://postgres-service.default.svc.cluster.local:5432/example?currentSchema=example_schema&ssl=false
+            - name: SPRING_DATASOURCE_USERNAME
+              value: appuser
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: apptest123
+      imagePullSecrets:
+        - name: registry-credentials
+# Ideally we would have an external source for the spring_datasource_password field
+# This was modified during troubleshooting to be hard-coded.
+# Would have to be reverted to B64 encoded version before running in secure setting.
