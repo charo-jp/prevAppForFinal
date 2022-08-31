@@ -14,8 +14,29 @@ async function getLogin() {
     studentData = [
         {instance_id: null, student_id: 'aa111', student_name: 'Adam', degree_title: 'MSc Computer Science Conversion'},
         {instance_id: null, student_id: 'bb222', student_name: 'Brandon', degree_title: 'MSc Computer Science'},
-        {instance_id: null, student_id: 'cc333', student_name: 'Charlie', degree_title: 'MSc Cyber Security'} 
-                ];
+        {instance_id: null, student_id: 'cc333', student_name: 'Charlie', degree_title: 'MSc Cyber Security'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'nxa2', student_name: 'Nicolas Ah-Leung', degree_title: 'Cyber Security - MSc'},
+        {instance_id: null, student_id: 'alpa2', student_name: 'Axel Ambert', degree_title: 'Advanced Computer Science - MSc'},
+        {instance_id: null, student_id: 'lapa3', student_name: 'Louis Anelli', degree_title: 'Cyber Security - MSc'},
+        {instance_id: null, student_id: 'lbca3', student_name: 'Luke Ashton', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'atsa2', student_name: 'Alexis Auriac', degree_title: 'Advanced Computer Science - MSc'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion'},
+    ];
+
     for( i =0; i < data.length; i++) {
         studentData.push(data[i]);
     }
