@@ -43,8 +43,26 @@ async function getLogin() {
     console.log(studentData);
 
     supervisorData = [
-        {supervisor_1_email: 'dd444@kent.ac.uk', supervisor_1_name: 'Darren'},
-        {supervisor_1_email: 'ee555@kent.ac.uk', supervisor_1_name: 'Eric'}
+        {supervisor_1_email: 'dd444@kent.ac.uk', supervisor_1_name: 'Darren Jackson'},
+        {supervisor_1_email: 'ee555@kent.ac.uk', supervisor_1_name: 'Eric Cartman'},
+        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
+        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
+        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
+        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
+        {supervisor_1_name: 'Marek Grzes', supervisor_1_email: 'M.Grzes@kent.ac.uk'},
+        {supervisor_1_name: 'David Barnes', supervisor_1_email: 'D.J.Barnes@kent.ac.uk'},
+        {supervisor_1_name: 'Ozgur Kafali', supervisor_1_email: 'R.O.Kafali@kent.ac.uk'},
+        {supervisor_1_name: 'Stefan Marr', supervisor_1_email: 'S.Marr@kent.ac.uk'},
+        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
+        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
+        {supervisor_1_name: 'Sanjay Bhattacherjee', supervisor_1_email: 'S.Bhattacherjee@kent.ac.uk'},
+        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
+        {supervisor_1_name: 'Jason Nurse', supervisor_1_email: 'J.R.C.Nurse@kent.ac.uk'},
+        {supervisor_1_name: 'Ozgur Kafali', supervisor_1_email: 'R.O.Kafali@kent.ac.uk'},
+        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
+        {supervisor_1_name: 'Alex Freitas', supervisor_1_email: 'A.A.Freitas@kent.ac.uk'},
+        {supervisor_1_name: 'Rogerio de Lemos', supervisor_1_email: 'R.Delemos@kent.ac.uk'},
+        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
     ]
     //loop through array of object from response, if student id matches with login
     //then add that login to an array.
