@@ -69,7 +69,7 @@ async function getUser() {
       {instance_id: null, student_id: 'maeb3', student_name: 'Mael Brocher', degree_title: 'Networks and Security - MSc', project_name: 'Ethics Generator', supervisor_1_name: 'Ozgur Kafali', supervisor_1_email: 'R.O.Kafali@kent.ac.uk'},
       {instance_id: null, student_id: 'otb3', student_name: 'Owen Buckley', degree_title: 'MSc Computer Science Conversion', project_name: 'Data-Exploration Using R', supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
       {instance_id: null, student_id: 'djc70', student_name: 'Daniel Chapman', degree_title: 'MSc Computer Science Conversion', project_name: 'Interpreting Classifiers in Bioinformatics', supervisor_1_name: 'Alex Freitas', supervisor_1_email: 'A.A.Freitas@kent.ac.uk'},
-      {instance_id: null, student_id: 'tc503', student_name: 'Tristan Choy', degree_title: 'MSc Computer Science Conversion', project_name: '', supervisor_1_name: '', supervisor_1_email: ''},
+      {instance_id: null, student_id: 'tc503', student_name: 'Tristan Choy', degree_title: 'MSc Computer Science Conversion'},
       {instance_id: null, student_id: 'dmc36', student_name: 'Daniel Constant', degree_title: 'Advanced Computer Science - MSc', project_name: 'IoT in the Midst of Fog', supervisor_1_name: 'Rogerio de Lemos', supervisor_1_email: 'R.Delemos@kent.ac.uk'},
       {instance_id: null, student_id: 'ka420', student_name: 'Joshua Cooper', degree_title: 'MSc Computer Science Conversion', project_name: 'Applying Machine Learning in Stock Trading', supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
   ];
