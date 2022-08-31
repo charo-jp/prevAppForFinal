@@ -74,10 +74,10 @@ async function getUser() {
       {instance_id: null, student_id: 'ka420', student_name: 'Joshua Cooper', degree_title: 'MSc Computer Science Conversion', project_name: 'Applying Machine Learning in Stock Trading', supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
   ];
 
-  for( i =0; i < data.length; i++) {
-      studentData.push(data[i]);
+  for( i = 0; i < studentData.length; i++) {
+      data.push(studentData[i]);
   }
-  console.log(studentData);
+  console.log(data);
 
 
     logingArray = [];
