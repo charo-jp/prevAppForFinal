@@ -302,7 +302,7 @@ async function sendJSON(){
         "ethics_status":ethicsStatus      //1 for awaiting review, 2 for accepted, 3 for rejected
     };
     
-    fetch('http://http://localhost:80/registerUser', {
+    fetch('http://localhost:8080/registerUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -320,7 +320,7 @@ async function sendJSON(){
 }
 
   async function getName() {
-    let url = 'http://localhost:80/getusers';
+    let url = 'http://localhost:8080/getusers';
     let response = await fetch(url);
     var data = await response.json();
     jsonArray = [];
