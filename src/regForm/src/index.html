@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,135 +16,120 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
-  </head>
+</head>
+
 <body class="container" onload="getUser()">
     <div class="container">
+        <section id="project_registration">
+            <h1 id="pageTitle">COMP8800 Project Registration</h1>
+            <p></p>
+            <div class="container">
+                <h5 id="welcomeMessage">Welcome</h5>
+                <br />
+                <p id="registeredMessage" display:none>You are currently registered to</p>
+            </div>
 
-        <h1 id="pageTitle">COMP8800 Project Registration</h1>
+            <div class="form-group">
+                <label for="nameInput">Full name</label>
+                <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="loginInput">Student login</label>
+                <input type="text" class="form-control" id="loginInput" placeholder="Enter your login">
+            </div>
 
-        <p></p>
-        <div class="container">
-          <h5 id="welcomeMessage">Welcome</h5>
-          <p id="registeredMessage" display:none>You are currently registered to</p>
-        </div>
-        
-          <div class="form-group">
-            <label for="nameInput">Full name</label>
-            <input type="text" class="form-control" id="nameInput" aria-describedby="emailHelp" placeholder="Enter your full name">
-          </div>
-          <div class="form-group">
-            <label for="loginInput">Student login</label>
-            <input type="text" class="form-control" id="loginInput"  placeholder="Enter your login">
-          </div>
+            <div class="form-group">
+                <select class="form-select form-select-sm" id="courseTitle" aria-label="Default select example">
+                    <option selected>Select your Degree Programme</option>
+                    <option value="1">Advanced Computer Science - MSc</option>
+                    <option value="2">Computer Science - MSc</option>
+                    <option value="3">Computer Science Conversion MSc</option>
+                    <option value="4">Cyber Security - MSc</option>
+                    <option value="5">Artificial Intelligence - MSc</option>
+                    <option value="6">Computer Science (Artificial Intelligence) - MSc</option>
+                    <option value="7">Networks and Security - MSc</option>
+                </select>
+            </div>
 
-          <div class="form-group">
-            <select class="form-select form-select-sm" id="courseTitle" aria-label="Default select example">
-              <option selected>Select your Degree Programme</option>
-              <option value="1">Advanced Computer Science - MSc</option>
-              <option value="2">Computer Science - MSc</option>
-              <option value="3">Cyber Security - MSc</option>
-              <option value="3">Artificial Intelligence - MSc</option>
-              <option value="3">Computer Science (Artificial Intelligence) - MSc</option>
-              <option value="3">Networks and Security - MSc</option>
-            </select>
-          </div>
+            <div class="form-group">
+                <label for="projectName">Project Name</label>
+                <input type="text" class="form-control" id="projectName" placeholder="Enter the name of the project you are registering for">
+            </div>
+            <div class="form-group">
+                <label for="supervisor1Name">Project Supervisor Name</label>
+                <input type="text" class="form-control" id="supervisor1Name" placeholder="Project supervisor name">
+            </div>
+            <div class="form-group">
+                <label for="supervisor1Email">Project Supervisor Email</label>
+                <input type="text" class="form-control" id="supervisor1Email" placeholder="Project supervisor email">
+            </div>
+            <div class="form-group">
+                <label for="supervisor2Name">2nd Project Supervisor Name (optional)</label>
+                <input type="text" class="form-control" id="supervisor2Name" placeholder="Project supervisor name">
+            </div>
+            <div class="form-group">
+                <label for="supervisor2Email">2nd Project Supervisor Email (optional)</label>
+                <input type="text" class="form-control" id="supervisor2Email" placeholder="Project supervisor email">
+            </div>
 
-          <div class="form-group">
-            <label for="projectName">Project Name</label>
-            <input type="text" class="form-control" id="projectName" placeholder="Enter the name of the project you are registering for">
-          </div>
-          <div class="form-group">
-            <label for="supervisor1Name">Project Supervisor Name</label>
-            <input type="text" class="form-control" id="supervisor1Name" placeholder="Project supervisor name">
-          </div>
-          <div class="form-group">
-            <label for="supervisor1Email">Project Supervisor Email</label>
-            <input type="text" class="form-control" id="supervisor1Email" placeholder="Project supervisor email">
-          </div>
-          <div class="form-group">
-            <label for="supervisor2Name">2nd Project Supervisor Name (optional)</label>
-            <input type="text" class="form-control" id="supervisor2Name" placeholder="Project supervisor name">
-          </div>
-          <div class="form-group">
-            <label for="supervisor2Email">2nd Project Supervisor Email (optional)</label>
-            <input type="text" class="form-control" id="supervisor2Email" placeholder="Project supervisor email">
-          </div>
+            <p></p>
+            <p id="tickText">Please tick if applies</p>
+            <div class="form-group form-check form-switch">
+                <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="cybersecProject">
+                <label class="form-check-label ethicsReview" for="cybersecProject">Is the project a cyber security project</label>
+            </div>
+            <div class="form-group form-check form-switch">
+                <input class="form-check-input specialResources" type="checkbox" role="switch" id="specialResourcesCheck" name="specialResourcesCheck">
+                <label class="form-check-label specialResources" for="specialResourcesCheck">Special resourses will be needed</label>
+            </div>
+            <div class="form-group mb-3">
+                <textarea class="form-control text-input" id="specialResInput" rows="4" placeholder="Enter special resources needed for this project" style="display: none"></textarea>
+            </div>
 
-          <p></p>
-          <p id="tickText">Please tick if applies</p>
-          <div class="form-group form-check form-switch">
-            <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="cybersecProject">
-            <label class="form-check-label ethicsReview" for="cybersecProject">Is the project a cyber security project</label>
-          </div>
-          <div class="form-group form-check form-switch">
-            <input class="form-check-input specialResources" type="checkbox" role="switch" id="specialResourcesCheck" name="specialResourcesCheck">
-            <label class="form-check-label specialResources" for="specialResourcesCheck">Special resourses will be needed</label>
-          </div>
-          <div class="form-group mb-3">
-            <textarea class="form-control text-input" id="specialResInput" rows="4" placeholder="Enter special resources needed for this project" style="display: none"></textarea>
-          </div>
+            <div class="form-group form-check form-switch">
+                <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="ethicsReviewCheck">
+                <label class="form-check-label ethicsReview" for="ethicsReviewCheck">Requires Ethics Approval</label>
+            </div>
 
-          <div class="form-group form-check form-switch">
-            <input class="form-check-input ethicsReview" type="checkbox" role="switch" id="ethicsReviewCheck">
-            <label class="form-check-label ethicsReview" for="ethicsReviewCheck">Requires Ethics Approval</label>
-          </div>
-          
-          <div class="form-group mb-3">
-            <button type="button" class="btn btn-outline-primary btn-sm" style="display: none" id="checkList">Ethics Checklist</button>
-            <textarea class="form-control text-input" id="ethicsReviewInput" rows="6" placeholder="should fill out this box with a brief description of the project and how human participants are involved" style="display: none"></textarea>
-          </div>
-            <pre id="jsonData"></pre>          
+            <div class="form-group mb-3">
+                <button type="button" class="btn btn-outline-primary btn-sm" style="display: none" id="checkList">Ethics Checklist</button>
+                <textarea class="form-control text-input" id="ethicsReviewInput" rows="6" placeholder="should fill out this box with a brief description of the project and how human participants are involved" style="display: none"></textarea>
+            </div>
+            <pre id="jsonData"></pre>
             <button onclick="sendJSON()" class="btn btn-primary" id="submitForm">Submit</button>
             <br>
-      </section>
-      <!-- Excel reader button and input -->
-      <section id="excel_upload">
-      <br>
-      <br>
-        <h5>Excel spreadsheet upload</h5>
-      <div>
-        <input type="file" id="file_upload" />
-        <button onclick="upload()" id="excel_button">Upload</button>	
-        <p id="excel_text">Excel Spreadsheets must contain student ids, names, degree titles and first supervisor's names. If there are errors, please refresh the page to upload again. <br>
-        Format will be as follows for the headings in the spreadsheet: <br>
-          student_id <br>
-          student_name <br>
-          degree_title <br>
-          supervisor_1_name <br>
-          example: <br>
-          <img src="Excel example.png">
-         </p>
-      </div>
+        </section>
+
+        <!-- Reporting inputs and button -->
+        <section id="generate_report">
+            <h1>Supervisor Page</h1>
+            <br>
+            <br>
+            <h5>Generate reports</h5>
+            <button onclick="getName()" class="btn btn-primary">Generate Report of supervised students</button>
+            <textarea id="json-report" style="display:none;height:500px;width:750px;"></textarea>
+    </div>
     </section>
-    
-    <!-- Reporting inputs and button -->
-      <section id="generate_report">
-        <br>
-        <br>
-        <h5>Generate reports</h5>
-          <button onclick="getName()" class="btn btn-primary">Generate Report of supervised students</button>
-          <textarea id="json-report" style="display:none;height:500px;width:750px;"></textarea>
-        </div>
-      </section>
     </div>
 
     <div class="container" id="RegisteredStudents">
-      <div class="container">
-        <h5>Students Registered to your projects</h5>
-      </div> 
-      <ul class="list-group list-group-flush" id="registeredStudentsList">
-      </ul>
+        <div class="container">
+            <h5>Students Registered to your projects</h5>
+        </div>
+        <ul class="list-group list-group-flush" id="registeredStudentsList">
+        </ul>
     </div>
 
-    
+
     <script src="js/regForm.js"></script>
-    
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
+
 </html>

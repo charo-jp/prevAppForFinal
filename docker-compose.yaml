@@ -1,9 +1,7 @@
 version: '3'
 services:
   springapp:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager:latest_RegForm_backend
     restart: always
     container_name: springapp
     environment:

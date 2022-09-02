@@ -1,4 +1,13 @@
 [[_TOC_]]
+# Kubernetes Deployment
+
+Still a work in progress, however entering the below URL will run a get request on the DB and return the default values initially spawned with the deployment.
+
+http://129.12.44.231:80/getusers/
+
+This can be added to by running postman requests with the correct JSON format
+
+In the event this doesn't work, the minikube tunnel may be down
 
 ## Prerequisites
 
@@ -25,7 +34,11 @@ To generate a build of the application using the Gradle wrapper, run:
 
 To spin up 2 local containers for the database and web applications, run: 
 
-`docker-compose build --no-cache` 
+`docker login git.cs.kent.ac.uk:5050` and login using your gitlab login
+
+Then run
+
+`docker build -t git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager .` to build the image
 
 Then run
 
@@ -66,20 +79,5 @@ To test the api (mac/linux only):
 
 
 ### Uploading excel
-Use provided excel file to upload.
+Use provided excel file in src/excelReader to upload.
 If using other excel files, headers in excel must be changed to match variable names of the database
-
-student_id
-student_name   
-degree_title
-project_name
-supervisor_1_name
-supervisor_1_email
-supervisor_2_name
-supervisor_2_email
-special_resources_check
-special_resources_text
-ethics_review_text
-ethics_review_check
-cybersec_project
-group_project
