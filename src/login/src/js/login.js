@@ -3,6 +3,10 @@ async function getLogin() {
     let login = $('#loginInput').val();
     let url = 'http://localhost:8080/getusers';
 
+    if(login == 'cemsugandpgt@kent.ac.uk') {
+        window.location.href = "http://localhost:8083";
+    }
+
     try {
         let response = await fetch(url);
         var data = await response.json();
@@ -12,7 +16,7 @@ async function getLogin() {
 
 
     studentData = [
-        {instance_id: null, student_id: 'aa111', student_name: 'Adam', degree_title: 'MSc Computer Science Conversion'},
+        {instance_id: null, student_id: 'jbkh2', student_name: 'Adam', degree_title: 'MSc Computer Science Conversion'},
         {instance_id: null, student_id: 'bb222', student_name: 'Brandon', degree_title: 'MSc Computer Science'},
         {instance_id: null, student_id: 'cc333', student_name: 'Charlie', degree_title: 'MSc Cyber Security'},
         {instance_id: null, student_id: 'ka420', student_name: 'Khalid Aadan', degree_title: 'MSc Computer Science Conversion', project_name: 'Understanding Money Mules: What, Who, Where, How and Why', supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
@@ -41,28 +45,10 @@ async function getLogin() {
         data.push(studentData[i]);
     }
 
-    supervisorData = [
-        {supervisor_1_email: 'dd444@kent.ac.uk', supervisor_1_name: 'Darren Jackson'},
-        {supervisor_1_email: 'ee555@kent.ac.uk', supervisor_1_name: 'Eric Cartman'},
-        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
-        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
-        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
-        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
-        {supervisor_1_name: 'Marek Grzes', supervisor_1_email: 'M.Grzes@kent.ac.uk'},
-        {supervisor_1_name: 'David Barnes', supervisor_1_email: 'D.J.Barnes@kent.ac.uk'},
-        {supervisor_1_name: 'Ozgur Kafali', supervisor_1_email: 'R.O.Kafali@kent.ac.uk'},
-        {supervisor_1_name: 'Stefan Marr', supervisor_1_email: 'S.Marr@kent.ac.uk'},
-        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
-        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
-        {supervisor_1_name: 'Sanjay Bhattacherjee', supervisor_1_email: 'S.Bhattacherjee@kent.ac.uk'},
-        {supervisor_1_name: 'Shujun Li', supervisor_1_email: 'S.J.Li@kent.ac.uk'},
-        {supervisor_1_name: 'Jason Nurse', supervisor_1_email: 'J.R.C.Nurse@kent.ac.uk'},
-        {supervisor_1_name: 'Ozgur Kafali', supervisor_1_email: 'R.O.Kafali@kent.ac.uk'},
-        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
-        {supervisor_1_name: 'Alex Freitas', supervisor_1_email: 'A.A.Freitas@kent.ac.uk'},
-        {supervisor_1_name: 'Rogerio de Lemos', supervisor_1_email: 'R.Delemos@kent.ac.uk'},
-        {supervisor_1_name: 'Dominique Chu', supervisor_1_email: 'D.F.Chu@kent.ac.uk'},
-    ]
+    // supervisorData = [
+    //     {supervisor_1_email: 'dd444@kent.ac.uk', supervisor_1_name: 'Darren'},
+    //     {supervisor_1_email: 'ee555@kent.ac.uk', supervisor_1_name: 'Eric'}
+    // ]
     //loop through array of object from response, if student id matches with login
     //then add that login to an array.
     loginArr = [];
@@ -74,6 +60,8 @@ async function getLogin() {
             loginArr.push(data[i].supervisor_1_email); 
         }else if(login == data[i].supervisor_1_name) {
             loginArr.push(data[i].supervisor_1_name);
+        }else if(login == studentData[i].student_id) {
+            loginArr.push(studentData[i].student_id);
         }
     }
     

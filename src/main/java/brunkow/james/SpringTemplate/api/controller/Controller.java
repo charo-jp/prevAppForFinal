@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:8081", "http://localhost:8082", "http://localhost:8083"}) //allows java to accept request from the url
+@CrossOrigin(origins = {"http://localhost:8081", "http://localhost:8082", "http://localhost:8083", "http://localhost:8084"}) //allows java to accept request from the url
 public class Controller {
     
     private final UserRepository userRepository;
