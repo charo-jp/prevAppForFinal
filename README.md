@@ -34,7 +34,7 @@ To generate a build of the application using the Gradle wrapper, run:
 
 To spin up 2 local containers for the database and web applications, run: 
 
-`docker login git.cs.kent.ac.uk:5050` to login to gitlab
+`docker login git.cs.kent.ac.uk:5050` and login using your gitlab login
 
 Then run
 
@@ -79,5 +79,5 @@ To test the api (mac/linux only):
 
 
 ### Uploading excel
-Use provided excel file to upload.
+Use provided excel file in src/excelReader to upload.
 If using other excel files, headers in excel must be changed to match variable names of the database

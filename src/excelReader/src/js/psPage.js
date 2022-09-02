@@ -19,19 +19,20 @@ function upload() {
           if (row.length > 0) {
               result[sheetName] = row;
               //Test if headers are correctly formatted
-              if (("student_id" in result[sheetName][1]) == false){
+              console.log("student_id" in result[sheetName][0])
+              if (("student_id" in result[sheetName][0]) == false){
                 alert("Invalid excel format. student_id must be a header for student ids");
                 return;
               }
-              if (("student_name" in result[sheetName][1]) == false){
+              if (("student_name" in result[sheetName][0]) == false){
                 alert("Invalid excel format. student_name must be a header for student names");
                 return;
               }
-              if (("degree_title" in result[sheetName][1]) == false){
+              if (("degree_title" in result[sheetName][0]) == false){
                 alert("Invalid excel format. degree_title must be a header for degree titles");
                 return;
               }
-              if (("supervisor_1_name" in result[sheetName][1]) == false){
+              if (("supervisor_1_name" in result[sheetName][0]) == false){
                 alert("Invalid excel format. supervisor_1_name must be a header for supervisor names");
                 return;
               }
