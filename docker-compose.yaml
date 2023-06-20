@@ -2,7 +2,6 @@ version: '3'
 services:
   springapp:
     image: git.cs.kent.ac.uk:5050/jwb50/final-year-project-manager:latest_RegForm_backend
-    restart: always
     container_name: springapp
     environment:
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
@@ -13,12 +12,17 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
-    command: ["bin/wait-for-db.sh", "java", "-jar", "/SpringBootExample.jar"]
+    command:
+      [
+        "bin/wait-for-db.sh",
+        "java",
+        "-jar",
+        "/SpringBootExample.jar"
+      ]
 
   postgres:
     container_name: postgres
     image: postgres:12.3-alpine
-    restart: always
     environment:
       POSTGRES_USER: appuser
       POSTGRES_PASSWORD: apptest123
