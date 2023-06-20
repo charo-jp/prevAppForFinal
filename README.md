@@ -1,4 +1,4 @@
-[[_TOC_]]
+This is a project that I did not make. I am just exploreing this because I am taking over this project.
 # Kubernetes Deployment
 
 Still a work in progress, however entering the below URL will run a get request on the DB and return the default values initially spawned with the deployment.
